@@ -1,48 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>User Management</title>
-    <link rel="stylesheet" href="Style/navigation.css">
-    <link rel="stylesheet "type="text/css" href="style/style.css">
-    <link rel="stylesheet" href="bootstrap-5.2.2-dist/css/bootstrap.min.css">
-    <script src="bootstrap-5.2.2-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.6.1.min.js"></script>
-    <script src="bootstrap-5.2.2-dist/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</head>
-<body>
+@extends('layout.layout')
+@section('content')
 
-<div id="content">
-    <header style="height: 15vh;">
-        <nav class="navbar navbar-expand-md p-1 mb-3 mx-5 my-1 border shadow rounded fixed-top bg-light" aria-label="Navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand my-4" href="#">BelajarPro</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse my-2" id="navbar">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li><a href="DashboardLogin.html" class="nav-link px-2 link-dark disabled">Home</a></li>
-                        <li><a href="Course_Page1.html" class="nav-link px-2 link-secondary">Course</a></li>
-                    </ul>
-                    <form class="me-5" style="width: 20%;" role="search" action="searching.html">
-                        <input class="form-control" type="search" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
-                    </form>
-
-                    <div class="nav-item">
-                        <a class="nav-link my-3" href="login.html">Login</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    
-    <main>
         <section id="user_management">
             <div class="container">
                 <table class="table table-striped">
@@ -141,19 +99,5 @@
                 </div>
             </div>
         </section>
-        
+@endsection        
 
-
-    </main>
-    <br>
-    <br>
-
-    <footer>
-       
-    </footer>
-    
-</div>	
-
-</body>
-
-</html>

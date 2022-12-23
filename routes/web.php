@@ -22,5 +22,6 @@ Route::get('/', function () {
 
 Route::get('/komunitas', [komunitasController::class, 'index'])->name('komunitas');
 Route::get('/course', [CourseController::class, 'index'])->name('course');
-Route::get('/admin', [adminController::class, 'index'])->name('admin-panel');
+Route::get('/admin/course', [adminController::class, 'course'])->name('admin-course');
+Route::get('/admin/user', [adminController::class, 'user'])->name('admin-user');
 
