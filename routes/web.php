@@ -26,4 +26,5 @@ Route::get('/admin/course', [adminController::class, 'course'])->name('admin-cou
 Route::get('/admin/user', [adminController::class, 'user'])->name('admin-user');
 Route::post('/admin/user', [adminController::class, 'edit_user'])->name('edit-user');
 Route::get('/admin/user/{parameter}', [adminController::class, 'delete_user'])->name('delete-user');
+Route::get('/masuk', [adminController::class, 'delete_user'])->name('delete-user');
 
