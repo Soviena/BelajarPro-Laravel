@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\komunitasController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\adminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/komunitas', [komunitasController::class, 'index'])->name('komunitas');
+Route::get('/course', [CourseController::class, 'index'])->name('course');
+Route::get('/admin', [adminController::class, 'index'])->name('admin-panel');
+
