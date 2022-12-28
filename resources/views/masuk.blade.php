@@ -1,48 +1,47 @@
 @extends('layout.layout')
 @section('content')
+
 <div class="container">
+<?php
+use Illuminate\Support\Facades\DB;
+    try {
+        DB::connection()->getPDO();
+        echo DB::connection()->getDatabaseName();
+        } catch (Exception $e) {
+        echo 'None';
+    }
+?>
     <!-- <p class="" id="tes" style=""></p> -->
     <div class="row justify-content-center border">
         <div class="col-4 mt-5 border border-success">
-            <!-- <form class="form-floating" novalidate action="DashboardLogin.html"> -->
-            <!-- <form class="form-floating" action="DashboardLogin.html"> -->
-            <form class="form-floating needs-validation" novalidate action="DashboardLogin.html">
+            <form class="form-floating needs-validation" novalidate action="{{route('submit')}}" method="post">
+            @csrf
                 <h1 class="mt-3">Masuk</h1>
-                <!-- <div class="form-floating mb-3 ms-3 me-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email address</label>
-                    </div>
-                    <div class="form-floating mb-3 ms-3 me-3">
-                        <input type="Password" class="form-control" id="floatingInput" placeholder="password">
-                        <label for="floatingInput">Password</label>
-                    </div> -->
                 <div class="mb-3 ms-3 me-3">
                     <label for="uname" class="form-label">Nama Pengguna</label>
-                    <input type="text" class="form-control" id="uname" aria-describedby="uname" required>
+                    <input type="text" class="form-control" id="name" aria-describedby="uname" required>
 
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
                 <div class="mb-3 ms-3 me-3">
                     <label for="pass" class="form-label">Kata Sandi</label>
-                    <input type="password" class="form-control" id="pass" required pattern="[A-Za-z0-9]{3}">
+                    <input type="password" name="password" class="form-control" id="password" required>
                     <div id="passwordHelpBlock" class="form-text">
                         Panjang Password harus 8-15 karakter, tidak mengandung spasi, karakter spesial,
                         atau emoji.
                     </div>
                 </div>
-                <!-- <div id="liveAlertPlaceholder"></div>
-                    <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button> -->
                 <div class="mb-3 ms-3 me-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
                 <div class="row">
                     <div class="col text-start mb-3 ms-3 me-3">
-                        <button type="submit" class="btn btn-primary" onclick="cek()">Masuk</button>
+                        <button type="submit" class="btn btn-primary" onclick="">Masuk</button>
                     </div>
                     <div class="col text-end mb-3 ms-3 me-3">
-                        <a class="btn btn-success" href="register.html" role="button">Daftar</a>
+                        <a class="btn btn-success" href="{{route('daftar')}}" role="button">Daftar</a>
                     </div>
                 </div>
             </form>
