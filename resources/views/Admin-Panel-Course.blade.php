@@ -6,7 +6,6 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">No</th>
                         <th scope="col">ID Course</th>
                         <th scope="col">Nama Course</th>
                         <th scope="col">Deskripsi</th>
@@ -14,16 +13,18 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($course as $c)
+
                     <tr>
-                        <th scope="row">1</th>
-                        <td>py_01</td>
-                        <td>Python</td>
-                        <td>python adalah..</td>
+                        <td>{{ $c->id }}</td>
+                        <td>{{ $c->nama }}</td>
+                        <td>{{ $c->deskripsi }}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">Edit</button>
-                            <button type="button" class="btn btn-danger" onclick="if (confirm('Yakin ingin menghapus data tersebut ?')) {window.location.href = '';}">Delete</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-{{$c->id}}">Edit</button>
+                            <button type="button" class="btn btn-danger" onclick="if (confirm('Yakin ingin menghapus data tersebut ?')) {window.location.href = '{{ route('delete-course', $c->id)}}';}">Delete</button>
                         </td>
                     </tr>
+
                     <tr>
                         <th scope="row">2</th>
                         <td>java_02</td>
