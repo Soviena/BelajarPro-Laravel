@@ -29,5 +29,7 @@ Route::get('/admin/user/{parameter}', [adminController::class, 'delete_user'])->
 Route::get('/masuk', [userController::class, 'index'])->name('masuk');
 Route::post('/masuk/submit', [userController::class, 'masuk'])->name('submit');
 Route::get('/daftar', [userController::class, 'daftar'])->name('daftar');
+Route::get('/daftar/submit', [userController::class, 'addUser'])->name('terdaftar');
+Route::get('/keluar', [userController::class, 'logout'])->name('keluar');
 
 // Route::get('/user', [userController::class, 'index'])->name('masuk');

@@ -45,7 +45,7 @@
                                 <li><a class="dropdown-item" href="#">Pesan</a></li>
                                 <li><a class="dropdown-item" href="#">Kursus ku</a></li>
                                 <li><a class="dropdown-item" href="#">Pengaturan</a></li>
-                                <li><a class="dropdown-item" href="Dashboard.html">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{route('keluar')}}">Logout</a></li>
                             </ul>
                         </div>
                     </div>
