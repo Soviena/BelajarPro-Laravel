@@ -1,25 +1,23 @@
 @extends('layout.layout')
 @section('content')
-
 <div class="container">
 <?php
-use Illuminate\Support\Facades\DB;
-    try {
-        DB::connection()->getPDO();
-        echo DB::connection()->getDatabaseName();
-        } catch (Exception $e) {
-        echo 'None';
-    }
+    // try {
+    //     DB::connection()->getPDO();
+    //     echo DB::connection()->getDatabaseName();
+    //     } catch (Exception $e) {
+    //     echo 'None';
+    // }
 ?>
     <!-- <p class="" id="tes" style=""></p> -->
     <div class="row justify-content-center border">
         <div class="col-4 mt-5 border border-success">
-            <form class="form-floating needs-validation" novalidate action="{{route('submit')}}" method="post">
+            <form class="form-floating needs-validation" novalidate action="{{route('submit')}}" method="POST">
             @csrf
                 <h1 class="mt-3">Masuk</h1>
                 <div class="mb-3 ms-3 me-3">
                     <label for="uname" class="form-label">Nama Pengguna</label>
-                    <input type="text" class="form-control" id="name" aria-describedby="uname" required>
+                    <input type="text" class="form-control" name="name" aria-describedby="uname" required>
 
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>

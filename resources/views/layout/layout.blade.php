@@ -29,9 +29,9 @@
                     
                     <div class="collapse navbar-collapse my-2" id="navbar">
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                            <li><a href="DashboardLogin.html" class="nav-link px-2 link-secondary">Home</a></li>
-                            <li><a href="Course_Page1.html" class="nav-link px-2 link-secondary">Course</a></li>
-                            <li><a href="#" class="nav-link px-2 link-secondary ">Komunitas</a></li>
+                            <li><a href="{{route('dashboard')}}" class="nav-link px-2 link-secondary">Home</a></li>
+                            <li><a href="{{route('course')}}" class="nav-link px-2 link-secondary">Course</a></li>
+                            <li><a href="{{route('komunitas')}}" class="nav-link px-2 link-secondary ">Komunitas</a></li>
                         </ul>
                         <form class="me-5" style="width: 20%;" role="search" action="searching.html">
                             <input class="form-control" type="search" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
@@ -52,7 +52,7 @@
                                 <li><a class="dropdown-item" href="#">Pesan</a></li>
                                 <li><a class="dropdown-item" href="#">Kursus ku</a></li>
                                 <li><a class="dropdown-item" href="#">Pengaturan</a></li>
-                                <li><a class="dropdown-item" href="Dashboard.html">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{route('keluar')}}">Logout</a></li>
                             </ul>
                         </div>
                     </div>
