@@ -24,7 +24,9 @@
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
                             <li><a href="{{route('dashboard')}}" class="nav-link px-2 link-secondary">Home</a></li>
                             <li><a href="{{route('course')}}" class="nav-link px-2 link-secondary">Course</a></li>
-                            <li><a href="{{route('komunitas')}}" class="nav-link px-2 link-secondary ">Komunitas</a></li>
+                            @if (session('loggedin',FALSE))
+                                <li><a href="{{route('komunitas')}}" class="nav-link px-2 link-secondary ">Komunitas</a></li>
+                            @endif
                         </ul>
                         <form class="me-5" style="width: 20%;" role="search" action="searching.html">
                             <input class="form-control" type="search" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
@@ -35,19 +37,22 @@
                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                             </svg>
                         </a>
-    
-                        <div class="nav-item dropdown">
-                            <a class="nav-link my-3" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://avatars.githubusercontent.com/u/40521471?v=4" alt="soviena" width="48" height="48" class="rounded-circle">
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="profil.html">Profil</a></li>
-                                <li><a class="dropdown-item" href="#">Pesan</a></li>
-                                <li><a class="dropdown-item" href="#">Kursus ku</a></li>
-                                <li><a class="dropdown-item" href="#">Pengaturan</a></li>
-                                <li><a class="dropdown-item" href="Dashboard.html">Logout</a></li>
-                            </ul>
-                        </div>
+                        @if (session('loggedin',FALSE))
+                            <div class="nav-item dropdown">
+                                <a class="nav-link my-3" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://avatars.githubusercontent.com/u/40521471?v=4" alt="soviena" width="48" height="48" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="profil.html">Profil</a></li>
+                                    <li><a class="dropdown-item" href="#">Pesan</a></li>
+                                    <li><a class="dropdown-item" href="#">Kursus ku</a></li>
+                                    <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                                    <li><a class="dropdown-item" href="Dashboard.html">Logout</a></li>
+                                </ul>
+                            </div>
+                        @else
+                            <a href="#" class="nav-link me-3">Login</a>
+                        @endif
                     </div>
                 </div>
             </nav>
