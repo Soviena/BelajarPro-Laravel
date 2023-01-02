@@ -15,6 +15,6 @@ class comment extends Model
     }
     public function members()
     {
-        return $this->belongsTo(member::class);
+        return $this->belongsTo(member::class, 'author_id');
     }
 }

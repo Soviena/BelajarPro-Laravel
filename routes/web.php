@@ -16,10 +16,7 @@ use App\Http\Controllers\userController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home')->name('dashboard');
+Route::get('/', [userController::class, 'dashboard'])->name('home');
 
 //komunitas
 Route::get('/komunitas', [komunitasController::class, 'index'])->name('komunitas');

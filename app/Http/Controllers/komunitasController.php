@@ -10,15 +10,15 @@ use App\Models\comment;
 class komunitasController extends Controller
 {
     public function index(){
-        if (!session('loggedin',FALSE)) return redirect()->route('login')->with('ilegal','Login first');
-        $posts = post::with('comments')->get();
+        if (!session('loggedin',FALSE)) return redirect()->route('masuk')->with('ilegal','Login first');
+        $posts = post::with('comments')->latest()->get();
         return view('komunitas', compact('posts'));
     }
 
     public function addPost(Request $request){
         $post = new post;
         $post->author_id = $request->uid;
-        $post->title = $request->tittle;
+        $post->title = $request->title;
         $post->deskripsi = $request->desc;
         $post->save();
         return redirect()->route('komunitas');
