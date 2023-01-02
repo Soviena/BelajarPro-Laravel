@@ -34,7 +34,7 @@
                         </svg>
                         {{$post->members->name}}
                     </a>
-                    <p class="fw-light" style="font-size: small;">{{$post->created_at}}</p>
+                    <p class="fw-light" style="font-size: small;">{{$post->created_at->diffForHumans()}}</p>
                 </div>
                 <p>{{$post->deskripsi}}</p>
             </div>
@@ -48,7 +48,7 @@
                             </svg>
                             {{$comment->members->name}}
                         </a>
-                        <p class="fw-light" style="font-size: small;">{{$comment->created_at}}</p>
+                        <p class="fw-light" style="font-size: small;">{{$comment->created_at->diffForHumans()}}</p>
                     </div>
                     <p>{{$comment->comment}}</p>
                 </div>

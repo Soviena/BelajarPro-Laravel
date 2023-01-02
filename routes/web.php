@@ -16,9 +16,8 @@ use App\Http\Controllers\userController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [userController::class, 'dashboard'])->name('home');
+
 //komunitas
 Route::get('/komunitas', [komunitasController::class, 'index'])->name('komunitas');
 Route::post('/komunitas/post/add', [komunitasController::class, 'addPost'])->name('addPost');
@@ -45,5 +44,3 @@ Route::post('/masuk/submit', [userController::class, 'masuk'])->name('submit');
 Route::get('/daftar', [userController::class, 'daftar'])->name('daftar');
 Route::get('/daftar/submit', [userController::class, 'addUser'])->name('terdaftar');
 Route::get('/keluar', [userController::class, 'logout'])->name('keluar');
-
-Route::get('/dashboard', [userController::class, 'dashboard'])->name('home');

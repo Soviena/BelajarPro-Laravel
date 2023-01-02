@@ -11,7 +11,7 @@ class komunitasController extends Controller
 {
     public function index(){
         if (!session('loggedin',FALSE)) return redirect()->route('masuk')->with('ilegal','Login first');
-        $posts = post::with('comments')->get();
+        $posts = post::with('comments')->latest()->get();
         return view('komunitas', compact('posts'));
     }
 
