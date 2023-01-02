@@ -23,12 +23,15 @@
 </div>
 
 <div class="container" id="community">
-
+    for
     <div class="container border rounded shadow-sm my-2 p-4 mb-4" id="">
         <div id="question" class="border p-3 rounded">
             <div class="d-flex border-bottom mb-3">
                 <a class="nav-link flex-grow-1" href="#">
-                    <img class="me-3 rounded-circle" src="https://avatars.githubusercontent.com/u/40521471?v=4" alt="soviena" width="24" height="24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
                     Soviena
                 </a>
                 <p class="fw-light" style="font-size: small;">27 November 2022, 10:43 AM</p>
@@ -38,7 +41,10 @@
         <div id="jawaban" class="border rounded my-4 ms-4 p-3">
             <div class="d-flex border-bottom mb-3">
                 <a class="nav-link flex-grow-1" href="#">
-                    <img class="me-3 rounded-circle" src="https://cdn.discordapp.com/avatars/347756970369089566/7708f115310da5dd51fe36f0e626aaf5.png" alt="soviena" width="24" height="24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
                     Donkuray
                 </a>
                 <p class="fw-light" style="font-size: small;">28 November 2022, 11:43 AM</p>
@@ -48,7 +54,7 @@
 
         <div class="ms-4 my-5">
             <h6 class="border-bottom mb-3">Jawab pertanyaan ini</h6>
-            <form action="#">
+            <form action="#" method="POST">
                 @csrf
                 <div class="row">
                     <label for="questionBox" class="form-label">Jawaban</label>
