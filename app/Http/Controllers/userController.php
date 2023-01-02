@@ -10,7 +10,7 @@ class userController extends Controller
 {
     public function index(Request $request)
     {
-        if (session('loggedin',FALSE)) return redirect()->route('komunitas')->with('ilegal','Already Logged in');
+        if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
         $remember = $request->cookie('remember');
         if($remember){
             $data = [
@@ -31,7 +31,7 @@ class userController extends Controller
     }
     
     public function daftar(){
-        if (session('loggedin',FALSE)) return redirect()->route('komunitas')->with('ilegal','Already Logged in');
+        if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
         return view('daftar');
     }
 
@@ -66,7 +66,7 @@ class userController extends Controller
                 Cookie::queue('password',$u->password,1440);
                 Cookie::queue('remember',TRUE,1440);
             }
-            return redirect()->route('komunitas')->with('login-success','Berhasil login');
+            return redirect()->route('home')->with('login-success','Berhasil login');
         }else{
             return redirect()->route('masuk')->with('login-failed','Password atau email salah');
         }

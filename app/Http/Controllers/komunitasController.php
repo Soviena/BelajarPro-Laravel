@@ -18,7 +18,7 @@ class komunitasController extends Controller
     public function addPost(Request $request){
         $post = new post;
         $post->author_id = $request->uid;
-        $post->title = $request->tittle;
+        $post->title = $request->title;
         $post->deskripsi = $request->desc;
         $post->save();
         return redirect()->route('komunitas');
