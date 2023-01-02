@@ -22,69 +22,23 @@
                     <br>
 
                     <div class="row row-cols-1 row-cols-md-2 g-4">
+                    @foreach ($courses as $c)
                         <div class="col">
                         <div class="card text-white bg-info" >
-                            <img src="{{asset('storage/assets/HTML.jpg')}}" class="card-img-top" alt="Pemroragrman HTML" height="500px">
+                            <img src="{{asset('storage/uploaded/Course/'.$c->img)}}" class="card-img-top" alt="Pemroragrman HTML" height="500px">
                             <div class="card-body">
-                                <h2 class="card-title fw-bold">Bahasa Pemrograman HTML</h2>   
+                                <h2 class="card-title fw-bold">{{$c->name}}</h2>   
                                 <p class="card-text fs-5">
-                                    HTML adalah bahasa standar pemrogaman yang digunakan untuk membuat halaman website,
-                                    yang diakses melalui internet. 
+                                    {{$c->deskripsi}}
                                 </p>
                             <div class="text-center">
-                                <a href="Course_Page1.html" class="btn btn-light">Pelajari</a>
+                                <a href="{{route('article',$c->id)}}" class="btn btn-light">Pelajari</a>
                             </div>
                             </div>
                         </div>
                         </div>
+                    @endforeach
 
-                        <div class="col">
-                        <div class="card  text-white bg-info">
-                            <img src="{{asset('storage/assets/JAVA.jpg')}}" class="card-img-top" alt="Pemrograman JAVA" height="500px">
-                            <div class="card-body">
-                            <h2 class="card-title fw-bold">Bahasa Pemrograman JAVA</h2>
-                                <p class="card-text fs-5">
-                                Java adalah bahasa pemrograman tingkat tinggi yang berorientasi objek dan program java 
-                                tersusun dari bagian yang disebut kelas.
-                                </p>
-                            <div class="text-center">
-                                <a href="Course_Page1.html" class="btn btn-light">Pelajari</a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="col">
-                        <div class="card text-white bg-info">
-                            <img src="{{asset('storage/assets/python.jpg')}}" class="card-img-top" alt="Pemrograman Python" height="500px">
-                            <div class="card-body">
-                            <h2 class="card-title fw-bold">Bahasa Pemrograman Python</h2>
-                                <p class="card-text fs-5">
-                                Python adalah sebuah bahasa pemrograman yang digunakan untuk membuat aplikasi dan
-                                melakukan analisis data.
-                                </p>
-                            <div class="text-center">
-                                <a href="Course_Page1.html" class="btn btn-light">Pelajari</a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="col">
-                        <div class="card text-white bg-info">
-                            <img src="{{asset('storage/assets/Javascript.jpg')}}" class="card-img-top" alt="Pemrograman Java Scripit" height="500px">
-                            <div class="card-body">
-                            <h2 class="card-title fw-bold">Bahasa Pemrograman Javascript</h2>
-                                <p class="card-text fs-5">
-                                JavaScript adalah bahasa pemrograman yang digunakan dalam pengembangan website 
-                                agar lebih dinamis dan interaktif. 
-                                </p>
-                            <div class="text-center">
-                                <a href="Course_Page1.html" class="btn btn-light" >Pelajari</a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
                     </div>
                     
                     

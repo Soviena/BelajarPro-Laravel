@@ -12,20 +12,27 @@ use Illuminate\Support\Facades\Storage;
 
 class adminController extends Controller
 {
+    public function index(){
+        if(!session('admin',FALSE) == "TRUE") return redirect()->route('home');
+        return redirect()->route('admin-course');
+    }
+
     public function course()
     {
+        if(!session('admin',FALSE) == "TRUE") return redirect()->route('home');
         $course = course::all();
         return view('Admin-Panel-Course', compact("course"));
     }
     public function user()
     {
+        if(!session('admin',FALSE) == "TRUE") return redirect()->route('home');
         $member = member::all();
-
         return view('Admin-Panel-User', compact("member"));
     }
 
     public function article()
     {
+        if(!session('admin',FALSE) == "TRUE") return redirect()->route('home');
         $article = article::all();
         return view('Admin-Panel-Article', compact("article"));
     }

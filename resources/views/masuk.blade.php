@@ -32,7 +32,7 @@
                 </div>
                 <div class="mb-3 ms-3 me-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <label class="form-check-label" for="exampleCheck1">Ingat saya</label>
                 </div>
                 <div class="row">
                     <div class="col text-start mb-3 ms-3 me-3">

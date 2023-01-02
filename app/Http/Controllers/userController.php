@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\member;
+use App\Models\course;
+
+
 class userController extends Controller
 {
     public function index(Request $request)
@@ -27,7 +30,8 @@ class userController extends Controller
     }
 
     public function dashboard(){
-        return view('Dashboard');
+        $courses = course::all();
+        return view('Dashboard', compact('courses'));
     }
     
     public function daftar(){

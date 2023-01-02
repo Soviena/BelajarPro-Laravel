@@ -22,7 +22,7 @@
         <header style="height: 15vh;">
             <nav class="navbar navbar-expand-md p-1 mb-3 mx-5 my-1 border shadow rounded fixed-top bg-light" aria-label="Navbar">
                 <div class="container-fluid">
-                    <a class="navbar-brand my-4" href="#">BelajarPro</a>
+                    <a class="navbar-brand my-4" href="#">Admin Panel BelajarPro</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -30,10 +30,8 @@
                     <div class="collapse navbar-collapse my-2" id="navbar">
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
                             <li><a href="{{route('home')}}" class="nav-link px-2 link-secondary">Home</a></li>
-                            <li><a href="{{route('course')}}" class="nav-link px-2 link-secondary">Course</a></li>
-                            @if (session('loggedin',FALSE))
-                                <li><a href="{{route('komunitas')}}" class="nav-link px-2 link-secondary ">Komunitas</a></li>
-                            @endif
+                            <li><a href="{{route('admin-course')}}" class="nav-link px-2 link-secondary">Course</a></li>
+                            <li><a href="{{route('admin-user')}}" class="nav-link px-2 link-secondary">User</a></li>
                         </ul>
                         <form class="me-5" style="width: 20%;" role="search" action="searching.html">
                             <input class="form-control" type="search" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
@@ -55,11 +53,12 @@
                                 <ul class="dropdown-menu">
                                     @if (session('admin',FALSE) == "TRUE")
                                         <li><a class="dropdown-item" href="{{route('admin')}}">Admin Panel</a></li>
+                                    @else
+                                        <li><a class="dropdown-item" href="profil.html">Profil</a></li>
+                                        <li><a class="dropdown-item" href="#">Pesan</a></li>
+                                        <li><a class="dropdown-item" href="#">Kursus ku</a></li>
+                                        <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                                     @endif
-                                    <li><a class="dropdown-item" href="profil.html">Profil</a></li>
-                                    <li><a class="dropdown-item" href="#">Pesan</a></li>
-                                    <li><a class="dropdown-item" href="#">Kursus ku</a></li>
-                                    <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                                     <li><a class="dropdown-item" href="{{route('keluar')}}">Logout</a></li>
                                 </ul>
                             </div>

@@ -23,22 +23,23 @@ Route::get('/komunitas', [komunitasController::class, 'index'])->name('komunitas
 Route::post('/komunitas/post/add', [komunitasController::class, 'addPost'])->name('addPost');
 Route::post('/komunitas/comment/add', [komunitasController::class, 'addComment'])->name('addComment');
 
-
 Route::get('/course', [CourseController::class, 'index'])->name('course');
-Route::get('/course/article/{parameter}', [CourseController::class, 'article'])->name('article');
+Route::get('/course/{idCourse}/article', [CourseController::class, 'article'])->name('article');
+
+Route::get('/admin', [adminController::class, 'index'])->name('admin');
 
 Route::get('/admin/user', [adminController::class, 'user'])->name('admin-user');
-Route::get('/admin/user/delete/{parameter}', [adminController::class, 'delete_user'])->name('delete-user');
+Route::get('/admin/user/delete/{idUser}', [adminController::class, 'delete_user'])->name('delete-user');
 Route::post('/admin/user/edit', [adminController::class, 'edit_user'])->name('edit-user');
 
 Route::get('/admin/course', [adminController::class, 'course'])->name('admin-course');
 Route::post('/admin/course/edit', [adminController::class, 'edit_course'])->name('edit-course');
 Route::post('/admin/course/add', [adminController::class, 'add_course'])->name('add-course');
-Route::get('/admin/course/delete/{parameter}', [adminController::class, 'delete_course'])->name('delete-course');
-Route::get('/admin/course/article', [adminController::class, 'article'])->name('admin-article');
-Route::post('/admin/course/article/edit', [adminController::class, 'edit_article'])->name('edit-article');
-Route::get('/admin/user/delete/{parameter}', [adminController::class, 'delete_user'])->name('delete-user');
-Route::get('/admin/course/article/delete/{parameter}', [adminController::class, 'delete_chapter'])->name('delete-chapter');
+Route::get('/admin/course/delete/{idCourse}', [adminController::class, 'delete_course'])->name('delete-course');
+
+Route::get('/admin/course/{idCourse}/article', [adminController::class, 'article'])->name('admin-article');
+Route::post('/admin/course/{idCourse}/article/edit', [adminController::class, 'edit_article'])->name('edit-article');
+Route::get('/admin/course/{idCourse}/article/delete/{idArticle}', [adminController::class, 'delete_chapter'])->name('delete-chapter');
 
 Route::get('/masuk', [userController::class, 'index'])->name('masuk');
 Route::post('/masuk/submit', [userController::class, 'masuk'])->name('submit');

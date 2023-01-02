@@ -25,6 +25,7 @@
 <div class="container" id="community">
     @foreach ($posts as $post)
         <div class="container border rounded shadow-sm my-2 p-4 mb-4" id="">
+            <h4 class="text-center">{{$post->title}}</h4>
             <div id="question" class="border p-3 rounded">
                 <div class="d-flex border-bottom mb-3">
                     <a class="nav-link flex-grow-1" href="#">
@@ -67,7 +68,7 @@
                         <input class="form-control col me-5" type="file" id="formFile" accept=".jpg,.png,.jpeg"> --}}
                         <input type="hidden" value="{{$post->id}}" name="pid">
                         <input type="hidden" value="{{session('uid')}}" name="uid">
-                        <input class="btn btn-primary col"type="submit" value="Jawab">
+                        <input class="btn btn-outline-primary col"type="submit" value="Jawab">
                     </div>
                 </form>
             </div>
