@@ -35,7 +35,7 @@
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="{{ route('edit-course')}}" method="POST">
+                                <form action="{{ route('edit-course')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
                                         <div class="mb-2">
@@ -46,9 +46,10 @@
                                             <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
                                             <input type="text" class="form-control" name="deskripsi" value="">
                                         </div>
-                                        <div class="mb-2">
-                                            <label for="img" class="form-label fw-bold">Link Image</label>
-                                            <input type="text" class="form-control" name="img" value="">
+                                        <div class="mb-3">
+                                            <label for="img" class="form-label fw-bold">Image</label>
+                                            <img class="rounded-3 mb-2 mx-auto shadow img-thumbnail" src="@isset($c){{asset('storage/uploaded/'.$c.'/'.$c->img)}}@endisset" alt="@isset($c) <?=$c->judul?> @endisset" style="max-height:240px;width:100%;max-width:100%; object-fit: cover; object-position: 25% 25%;">
+                                            <input class="form-control col me-5" type="file" name="img" accept=".jpg,.png,.jpeg">
                                         </div>
                                         <input type="hidden" value="{{ $c->id }}" name="id">
                                     <div class="modal-footer">
@@ -62,8 +63,8 @@
                     @endforeach
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-{{$c->id}}">Add Course</button>
-                <div class="modal fade" id="add-{{$c->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Add Course</button>
+                <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -72,7 +73,7 @@
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="{{ route('add-course')}}" method="POST">
+                                <form action="{{ route('add-course')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
                                         <div class="mb-2">
@@ -83,11 +84,11 @@
                                             <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
                                             <input type="text" class="form-control" name="deskripsi" value="">
                                         </div>
-                                        <div class="mb-2">
-                                            <label for="img" class="form-label fw-bold">Link Image</label>
-                                            <input type="text" class="form-control" name="img" value="">
-                                        </div>
-                                        <input type="hidden" value="{{ $c->id }}" name="id">
+                                        <div class="mb-3">
+                                            <label for="img" class="form-label fw-bold">Image</label>
+                                            <img class="rounded-3 mb-2 mx-auto shadow img-thumbnail" src="@isset($c){{asset('storage/uploaded/'.$c.'/'.$c->img)}}@endisset" alt="@isset($c) <?=$c->judul?> @endisset" style="max-height:240px;width:100%;max-width:100%; object-fit: cover; object-position: 25% 25%;">
+                                            <input class="form-control col me-5" type="file" name="img" accept=".jpg,.png,.jpeg">
+                                        </div> 
                                     <div class="modal-footer">
                                         <input type="submit" class="btn btn-warning" value="Simpan">
                                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>

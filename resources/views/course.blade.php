@@ -5,7 +5,7 @@
         @foreach($course as $c)
         <div class="col-sm-3">
             <div class="card" style="width: 17rem; height: 26rem">
-                <img src="<?=$c->img?>" style="width:270px;height:184px;" class="card-img-top" alt="...">
+                <img src="{{asset('storage/uploaded/Course/'.$c->img)}}" style="width:270px;height:184px;" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?=$c->name?></h5>
                     <p class="card-text"><?=$c->deskripsi?></p>

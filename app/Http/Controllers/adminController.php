@@ -7,6 +7,9 @@ use App\Models\member;
 use App\Models\course;
 use App\Models\article;
 
+use Illuminate\Support\Facades\Storage;
+
+
 class adminController extends Controller
 {
     public function course()
@@ -63,7 +66,13 @@ class adminController extends Controller
         $course = course::find($request->id);
         $course->name=$request->name;
         $course->deskripsi=$request->deskripsi;
-        $course->img=$request->img;
+        if($request->hasfile('img')){
+            Storage::delete('public/uploaded/Course/'.$course->image);
+            $gallerypic = $request->file('img');
+            $gallerypic->storeAs('public/uploaded/Course/',$gallerypic->hashName());
+            $course->img = $gallerypic->hashName();
+        }
+
         
         $course->save();
         
@@ -75,7 +84,11 @@ class adminController extends Controller
         $course = new course;
         $course->name=$request->name;
         $course->deskripsi=$request->deskripsi;
-        $course->img=$request->img;
+        if($request->hasfile('img')){
+            $gallerypic = $request->file('img');
+            $gallerypic->storeAs('public/uploaded/Course/',$gallerypic->hashName());
+            $course->img = $gallerypic->hashName();
+        }
 
         $course->save();
         
@@ -85,6 +98,7 @@ class adminController extends Controller
     public function delete_course($id)
     {
         $course = course::find($id);
+        Storage::delete('public/uploaded/Course/'.$course->image);
         $course->delete();
         
         return redirect()->route('admin-course');
