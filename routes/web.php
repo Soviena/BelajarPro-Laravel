@@ -19,8 +19,6 @@ use App\Http\Controllers\userController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home')->name('dashboard');
-
 //komunitas
 Route::get('/komunitas', [komunitasController::class, 'index'])->name('komunitas');
 Route::post('/komunitas/post/add', [komunitasController::class, 'addPost'])->name('addPost');

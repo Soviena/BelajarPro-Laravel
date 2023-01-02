@@ -29,7 +29,7 @@
                     
                     <div class="collapse navbar-collapse my-2" id="navbar">
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                            <li><a href="{{route('dashboard')}}" class="nav-link px-2 link-secondary">Home</a></li>
+                            <li><a href="{{route('home')}}" class="nav-link px-2 link-secondary">Home</a></li>
                             <li><a href="{{route('course')}}" class="nav-link px-2 link-secondary">Course</a></li>
                             @if (session('loggedin',FALSE))
                                 <li><a href="{{route('komunitas')}}" class="nav-link px-2 link-secondary ">Komunitas</a></li>
