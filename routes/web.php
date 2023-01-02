@@ -47,3 +47,5 @@ Route::post('/masuk/submit', [userController::class, 'masuk'])->name('submit');
 Route::get('/daftar', [userController::class, 'daftar'])->name('daftar');
 Route::get('/daftar/submit', [userController::class, 'addUser'])->name('terdaftar');
 Route::get('/keluar', [userController::class, 'logout'])->name('keluar');
+
+Route::get('/dashboard', [userController::class, 'dashboard'])->name('home');

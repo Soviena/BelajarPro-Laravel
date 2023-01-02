@@ -25,6 +25,10 @@ class userController extends Controller
         }
         return view('masuk',compact('data'));
     }
+
+    public function dashboard(){
+        return view('Dashboard');
+    }
     
     public function daftar(){
         if (session('loggedin',FALSE)) return redirect()->route('komunitas')->with('ilegal','Already Logged in');
