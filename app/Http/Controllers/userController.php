@@ -80,4 +80,9 @@ class userController extends Controller
         $request->session()->invalidate();
         return redirect()->route('masuk')->with('logout-success','Berhasil logout');
     }
+
+    public function quiz(Request $request){
+        return view('quiz');
+    }
+
 }
