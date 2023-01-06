@@ -52,23 +52,22 @@ class userController extends Controller
     }
 
     public function masuk(Request $request){
-        $u = DB::table('members')->where('name',$request->name)->first();
-        // $as = "allo";
-        // error_log($as);
+        $u = DB::table('members')->where('email',$request->email)->first();
         $a = $request->password;
         error_log("$a");
-        // error_log(print("$u->id"));
         if ($u && $u->password == $request->password) {
-        // if (1==2) {
             session(['loggedin' => TRUE]);
             session(['uid' => $u->id]);
-            session(['name' => $u->name]);
             session(['email' => $u->email]);
             session(['admin' => $u->admin]);
             if($request->remember){
-                Cookie::queue('name',$u->name,1440);
-                Cookie::queue('password',$u->password,1440);
-                Cookie::queue('remember',TRUE,1440);
+                Cookie::queue('email',$u->email,1);
+                Cookie::queue('password',$u->password,1);
+                Cookie::queue('remember',TRUE,1);
+            }else{
+                Cookie::queue('email','');
+                Cookie::queue('password','');
+                Cookie::queue('remember','');
             }
             return redirect()->route('home')->with('login-success','Berhasil login');
         }else{
@@ -79,6 +78,27 @@ class userController extends Controller
     public function logout(Request $request){
         $request->session()->invalidate();
         return redirect()->route('masuk')->with('logout-success','Berhasil logout');
+    }
+
+    //profil
+    public function profil(Request $request){
+        $u = DB::table('members')->where('email',session('email'))->first();
+        return view('profil',compact('u'));
+    }
+
+    public function profil_edit(Request $request)
+    {
+        $member = member::find($request->id);
+        $member->name=$request->name;
+        $member->email=$request->email;
+        $member->no_hp=$request->no_hp;
+        $member->alamat=$request->alamat;
+        $member->biography=$request->biography;
+        if ($request->password != '') {
+            $member->password = $request->password;
+        }
+        $member->save();
+        return redirect()->route('profil');
     }
 
     public function quiz(Request $request){
