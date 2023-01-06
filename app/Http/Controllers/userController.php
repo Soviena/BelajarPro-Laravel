@@ -79,4 +79,25 @@ class userController extends Controller
         $request->session()->invalidate();
         return redirect()->route('masuk')->with('logout-success','Berhasil logout');
     }
+
+    //profil
+    public function profil(Request $request){
+        $u = DB::table('members')->where('email',session('email'))->first();
+        return view('profil',compact('u'));
+    }
+
+    public function profil_edit(Request $request)
+    {
+        $member = member::find($request->id);
+        $member->name=$request->name;
+        $member->email=$request->email;
+        $member->no_hp=$request->no_hp;
+        $member->alamat=$request->alamat;
+        $member->biography=$request->biography;
+        if ($request->password != '') {
+            $member->password = $request->password;
+        }
+        $member->save();
+        return redirect()->route('profil');
+    }
 }

@@ -102,6 +102,17 @@ class adminController extends Controller
         return redirect()->route('admin-course');
     }
 
+    public function add_article(Request $request)
+    {
+        $article = new article;
+        $article->chapter=$request->chapter;
+        $article->deskripsi=$request->deskripsi;
+
+        $article->save();
+        
+        return redirect()->route('article-course');
+    }
+
     public function delete_course($id)
     {
         $course = course::find($id);

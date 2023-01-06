@@ -39,6 +39,7 @@ Route::get('/admin/course/delete/{idCourse}', [adminController::class, 'delete_c
 
 Route::get('/admin/course/{idCourse}/article', [adminController::class, 'article'])->name('admin-article');
 Route::post('/admin/course/{idCourse}/article/edit', [adminController::class, 'edit_article'])->name('edit-article');
+Route::post('/admin/course/article/add', [adminController::class, 'add_article'])->name('add-article');
 Route::get('/admin/course/{idCourse}/article/delete/{idArticle}', [adminController::class, 'delete_chapter'])->name('delete-chapter');
 
 Route::get('/masuk', [userController::class, 'index'])->name('masuk');
@@ -46,3 +47,7 @@ Route::post('/masuk/submit', [userController::class, 'masuk'])->name('submit');
 Route::get('/daftar', [userController::class, 'daftar'])->name('daftar');
 Route::get('/daftar/submit', [userController::class, 'addUser'])->name('terdaftar');
 Route::get('/keluar', [userController::class, 'logout'])->name('keluar');
+
+//profil
+Route::get('/profil', [userController::class, 'profil'])->name('profil');
+Route::post('/profil/submit', [userController::class, 'profil_edit'])->name('profil_edit');
