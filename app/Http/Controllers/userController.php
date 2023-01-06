@@ -52,23 +52,22 @@ class userController extends Controller
     }
 
     public function masuk(Request $request){
-        $u = DB::table('members')->where('name',$request->name)->first();
-        // $as = "allo";
-        // error_log($as);
+        $u = DB::table('members')->where('email',$request->email)->first();
         $a = $request->password;
         error_log("$a");
-        // error_log(print("$u->id"));
         if ($u && $u->password == $request->password) {
-        // if (1==2) {
             session(['loggedin' => TRUE]);
             session(['uid' => $u->id]);
-            session(['name' => $u->name]);
             session(['email' => $u->email]);
             session(['admin' => $u->admin]);
             if($request->remember){
-                Cookie::queue('name',$u->name,1440);
-                Cookie::queue('password',$u->password,1440);
-                Cookie::queue('remember',TRUE,1440);
+                Cookie::queue('email',$u->email,1);
+                Cookie::queue('password',$u->password,1);
+                Cookie::queue('remember',TRUE,1);
+            }else{
+                Cookie::queue('email','');
+                Cookie::queue('password','');
+                Cookie::queue('remember','');
             }
             return redirect()->route('home')->with('login-success','Berhasil login');
         }else{
