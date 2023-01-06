@@ -57,7 +57,7 @@
                                     @if (session('admin',FALSE) == "TRUE")
                                         <li><a class="dropdown-item" href="{{route('admin')}}">Admin Panel</a></li>
                                     @endif
-                                    <li><a class="dropdown-item" href="profil.html">Profil</a></li>
+                                    <li><a class="dropdown-item" href="{{route('profil')}}">Profil</a></li>
                                     <li><a class="dropdown-item" href="#">Pesan</a></li>
                                     <li><a class="dropdown-item" href="#">Kursus ku</a></li>
                                     <li><a class="dropdown-item" href="#">Pengaturan</a></li>
