@@ -56,8 +56,36 @@
                     @endforeach
                     </tbody>
                 </table>
-
-
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Add Article</button>
+                <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Artikel</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="{{ route('add-article')}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-body">
+                                        <div class="mb-2">
+                                            <label for="chapter" class="form-label fw-bold">Chapter</label>
+                                            <input type="text" class="form-control" name="chapter" value="">
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
+                                            <input type="text" class="form-control" name="deskripsi" value="">
+                                        </div>
+                                    <div class="modal-footer">
+                                        <input type="submit" class="btn btn-warning" value="Simpan">
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 @endsection        

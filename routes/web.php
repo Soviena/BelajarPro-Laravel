@@ -39,6 +39,7 @@ Route::get('/admin/course/delete/{idCourse}', [adminController::class, 'delete_c
 
 Route::get('/admin/course/{idCourse}/article', [adminController::class, 'article'])->name('admin-article');
 Route::post('/admin/course/{idCourse}/article/edit', [adminController::class, 'edit_article'])->name('edit-article');
+Route::post('/admin/course/article/add', [adminController::class, 'add_article'])->name('add-article');
 Route::get('/admin/course/{idCourse}/article/delete/{idArticle}', [adminController::class, 'delete_chapter'])->name('delete-chapter');
 
 Route::get('/masuk', [userController::class, 'index'])->name('masuk');
