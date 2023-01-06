@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="mb-2">
                                             <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
-                                            <input type="text" class="form-control" name="deskripsi" value="">
+                                            <input type="text" class="form-control" name="deskripsi" value="{{ $c->deskripsi }}">
                                         </div>
                                         <div class="mb-3">
                                             <label for="img" class="form-label fw-bold">Image</label>
