@@ -42,7 +42,7 @@ class userController extends Controller
     public function addUser(Request $request){
         $u = DB::table('members')->where('email',$request->email)->first();
         if($u) return redirect()->route('daftar')->with('email-exist','email must be unique');
-        if($request->password != $request->password1) return redirect()->route('daftar')->with('password-not-match','please try again');
+        if($request->password != $request->password2) return redirect()->route('daftar')->with('password-not-match','please try again');
         $user = new member;
         $user->name = $request->name;
         $user->email = $request->email;
@@ -53,17 +53,17 @@ class userController extends Controller
 
     public function masuk(Request $request){
         $u = DB::table('members')->where('email',$request->email)->first();
-        $a = $request->password;
-        error_log("$a");
+        // $a = $request->password;
+        // error_log("$a");
         if ($u && $u->password == $request->password) {
             session(['loggedin' => TRUE]);
             session(['uid' => $u->id]);
             session(['email' => $u->email]);
             session(['admin' => $u->admin]);
             if($request->remember){
-                Cookie::queue('email',$u->email,1);
-                Cookie::queue('password',$u->password,1);
-                Cookie::queue('remember',TRUE,1);
+                Cookie::queue('email',$u->email,1440);
+                Cookie::queue('password',$u->password,1440);
+                Cookie::queue('remember',TRUE,1440);
             }else{
                 Cookie::queue('email','');
                 Cookie::queue('password','');

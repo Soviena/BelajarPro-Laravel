@@ -3,32 +3,28 @@
 <div class="container">
     <div class="row justify-content-center border">
         <div class="col-4 mt-5 border border-success">
-            <form action="{{route('terdaftar')}}" class="needs-validation" novalidate>
-                <h1 class="mt-3">Daftar</h1>
-                <div class="mb-3 ms-3 me-3">
+            <form class="" action="{{route('terdaftar')}}" method="POST">
+                @csrf
+                <h1 class="mt-3 text-center">Daftar</h1>
+                <div class="ms-3 mb-3 me-3">
                     <label for="email" class="form-label">Alamat Email</label>
-                    <input type="email" name="email" class="form-control" aria-describedby="emailHelp" required>
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="email@email.com" required>
                 </div>
                 <div class="mb-3 ms-3 me-3">
-                    <label for="namapengguna" class="form-label">Nama Pengguna</label>
-                    <input type="text" name="name" class="form-control" required>
+                    <label for="name" class="form-label">Nama Pengguna</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
                 </div>
                 <div class="mb-3 ms-3 me-3">
-                    <label for="katasandi" class="form-label">Kata Sandi</label>
-                    <input type="password" name="password" class="form-control" required pattern="[A-Za-z0-9]{3}">
-
+                    <label for="password" class="form-label">Kata Sandi</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="mb-3 ms-3 me-3">
                     <label for="password2" class="form-label">Konfirmasi Kata Sandi</label>
-                    <input type="password" name="password1" class="form-control" required pattern="[A-Za-z0-9]{3}">
+                    <input type="password" name="password2" class="form-control" required>
                     <div id="passwordHelpBlock" class="form-text">
-                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                    Panjang Password harus 8-15 karakter, tidak mengandung spasi, karakter spesial,
+                        atau emoji.
                     </div>
-                </div>
-                <div class="mb-3 ms-3 me-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Ingat saya</label>
                 </div>
                 <div class="text-center mb-3 ms-3 me-3">
                     <button type="submit" class="btn btn-success">Daftar</button>
@@ -37,24 +33,4 @@
         </div>
     </div>
 </div>
-<script>
-    (() => {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validations')
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-    })()
-</script>
 @endsection
