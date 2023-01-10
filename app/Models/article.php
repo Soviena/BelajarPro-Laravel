@@ -9,8 +9,8 @@ class article extends Model
 {
     use HasFactory;
     protected $table = 'articles';
-    public function courses()
+    public function course()
     {
-        return $this->belongsTo(course::class);
+        return $this->belongsTo(course::class,'course_id');
     }
 }

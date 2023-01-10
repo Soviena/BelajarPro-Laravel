@@ -49,6 +49,9 @@ Route::post('/daftar/submit', [userController::class, 'addUser'])->name('terdaft
 Route::get('/keluar', [userController::class, 'logout'])->name('keluar');
 
 Route::get('/quiz', [userController::class, 'quiz'])->name('quiz');
+
+Route::get('/search', [userController::class, 'search'])->name('search');
+
 //profil
-Route::get('/profil', [userController::class, 'profil'])->name('profil');
+Route::get('/profil/{idUser}', [userController::class, 'profil'])->name('profil');
 Route::post('/profil/submit', [userController::class, 'profil_edit'])->name('profil_edit');

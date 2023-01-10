@@ -14,7 +14,8 @@
                 <div class="mb-3 ms-3 me-3">
                     <label for="email" class="form-label">Alamat Email</label>
                     <input type="email" class="form-control @if(session('login-failed')) <?= "is-invalid" ?> @endif)" id="email" name="email" aria-describedby="email" required placeholder="nama@gmail.com" 
-                    value="@if($data['remember'])<?=$data['email']?>@endif @if(session('login-failed'))<?=session('login-failed.email')?>@endif" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                    value="@if($data['remember'])<?=$data['email']?>@endif @if(session('login-failed'))<?=session('login-failed.email')?>@endif">
+                    {{-- pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" --}}
                     <div class="invalid-feedback">
                         {{session('login-failed.msg1')}}
                     </div>
@@ -23,7 +24,8 @@
                 <div class="mb-3 ms-3 me-3">
                     <label for="password" class="form-label">Kata Sandi</label>
                     <div class="input-group" id="show_hide_password">
-                        <input type="password" class="form-control @if(session('login-failed')) <?= "is-invalid" ?> @endif" id="password" name="password" required value="@if($data['remember'])<?=$data['password'];?>@endif" pattern="^(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[a-zA-Z])\S{7,}\S$">
+                        <input type="password" class="form-control @if(session('login-failed')) <?= "is-invalid" ?> @endif" id="password" name="password" required value="@if($data['remember'])<?=$data['password'];?>@endif">
+                        {{-- pattern="^(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[a-zA-Z])\S{7,}\S$" --}}
                         <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="bi bi-eye-slash" aria-hidden="true"></i></button>
                         <div class="invalid-feedback">
                             {{session('login-failed.msg2')}}

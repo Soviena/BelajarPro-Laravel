@@ -36,8 +36,8 @@
                                 <li><a href="{{route('komunitas')}}" class="nav-link px-2 link-secondary ">Komunitas</a></li>
                             @endif
                         </ul>
-                        <form class="me-5" style="width: 20%;" role="search" action="searching.html">
-                            <input class="form-control" type="search" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
+                        <form class="me-5" style="width: 20%;" role="search" action="{{route('search')}}" method="GET">
+                            <input class="form-control" type="search" name="query" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
                         </form>
     
                         <a href="#" class="nav-link me-5 my-3 link-dark">
@@ -48,17 +48,21 @@
                         @if (session('loggedin',FALSE))
                             <div class="nav-item dropdown">
                                 <a class="nav-link my-3 me-5" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                                    </svg>
+                                    @if(session('profilePic') == "")
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg>
+                                    @else
+                                        <img src="{{asset('storage/uploaded/profile/'.session('profilePic'))}}" style="max-height:24px;" class="rounded-circle" alt="user" />
+                                    @endif
                                     {{session('name')}}
                                 </a>
                                 <ul class="dropdown-menu">
                                     @if (session('admin',FALSE) == "TRUE")
                                         <li><a class="dropdown-item" href="{{route('admin')}}">Admin Panel</a></li>
                                     @endif
-                                    <li><a class="dropdown-item" href="{{route('profil')}}">Profil</a></li>
+                                    <li><a class="dropdown-item" href="{{route('profil',session('uid'))}}">Profil</a></li>
                                     <li><a class="dropdown-item" href="#">Pesan</a></li>
                                     <li><a class="dropdown-item" href="#">Kursus ku</a></li>
                                     <li><a class="dropdown-item" href="#">Pengaturan</a></li>

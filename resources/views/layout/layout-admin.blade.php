@@ -34,8 +34,8 @@
                             <li><a href="{{route('admin-course')}}" class="nav-link px-2 link-secondary">Course</a></li>
                             <li><a href="{{route('admin-user')}}" class="nav-link px-2 link-secondary">User</a></li>
                         </ul>
-                        <form class="me-5" style="width: 20%;" role="search" action="searching.html">
-                            <input class="form-control" type="search" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
+                        <form class="me-5" style="width: 20%;" role="search" action="{{route('search')}}" method="GET">
+                            <input class="form-control" type="search" name="query" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
                         </form>
     
                         <a href="#" class="nav-link me-5 my-3 link-dark">

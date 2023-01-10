@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\member;
 use App\Models\course;
+use App\Models\article;
 
 
 class userController extends Controller
@@ -77,6 +78,7 @@ class userController extends Controller
             session(['uid' => $u->id]);
             session(['email' => $u->email]);
             session(['admin' => $u->admin]);
+            session(['profilePic' => $u->profilePic]);
             if($request->remember){
                 Cookie::queue('email',$u->email,1440);
                 Cookie::queue('password',$u->password,1440);
@@ -102,8 +104,8 @@ class userController extends Controller
     }
 
     //profil
-    public function profil(Request $request){
-        $u = DB::table('members')->where('email',session('email'))->first();
+    public function profil(Request $request,$idu){
+        $u = member::find($idu);
         return view('profil',compact('u'));
     }
 
@@ -118,12 +120,30 @@ class userController extends Controller
         if ($request->password != '') {
             $member->password = $request->password;
         }
+        if($request->hasfile('img')){
+            $profilePic = $request->file('img');
+            $profilePic->storeAs('public/uploaded/profile/',$profilePic->hashName());
+            $member->profilePic = $profilePic->hashName();
+        }
         $member->save();
         return redirect()->route('profil');
     }
 
     public function quiz(Request $request){
         return view('quiz');
+    }
+
+    public function search(Request $request){
+        $query = request()->input('query');
+        $user = member::where('name','like','%'.$query.'%')->get();
+        $course = course::where('name','like','%'.$query.'%')->get();
+        $article = article::where('chapter','like','%'.$query.'%')->get();
+        $data = [
+            "users" => $user,
+            "courses" => $course,
+            "articles" => $article
+        ];
+        return view('searchIndex',compact('data'));
     }
 
 }

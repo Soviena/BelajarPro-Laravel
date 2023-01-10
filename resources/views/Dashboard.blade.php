@@ -25,7 +25,7 @@
                     @foreach ($courses as $c)
                         <div class="col">
                         <div class="card text-white bg-info" >
-                            <img src="{{asset('storage/uploaded/Course/'.$c->img)}}" class="card-img-top" alt="Pemroragrman HTML" height="500px">
+                            <img src="{{asset('storage/uploaded/Course/'.$c->img)}}"  style="height:20vh; object-fit: cover; object-position: 25% 25%;" class="card-img-top" alt="Pemroragrman HTML">
                             <div class="card-body">
                                 <h2 class="card-title fw-bold">{{$c->name}}</h2>   
                                 <p class="card-text fs-5">

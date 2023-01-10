@@ -8,12 +8,8 @@
                 <h1 class="mt-3 text-center">Daftar</h1>
                 <div class="ms-3 mb-3 me-3">
                     <label for="email" class="form-label">Alamat Email</label>
-                    <input type="email" class="form-control @if(session('daftar-failed')) <?= "is-invalid" ?> @endif)" id="email" name="email" aria-describedby="emailHelp" placeholder="nama@gmail.com" required value="
-                    <?php
-                    if (session('daftar-failed')) {
-                        echo session('daftar-failed.email');
-                    }
-                    ?>" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                    <input type="email" class="form-control @if(session('daftar-failed')) <?= "is-invalid" ?> @endif)" id="email" name="email" aria-describedby="emailHelp" placeholder="nama@gmail.com" required value="@if(session('daftar-failed')){{session('daftar-failed.email')}}@endif">
+                    {{-- pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" --}}
 
                     <div class="invalid-feedback">
                         {{session('daftar-failed.msg1')}}
@@ -26,18 +22,20 @@
                 <div class="mb-3 ms-3 me-3">
                     <label for="password" class="form-label">Kata Sandi</label>
                     <div class="input-group" id="show_hide_password">
-                        <input type="password" class="form-control @if(session('daftar-failed')) <?= "is-invalid" ?> @endif)" id="password" name="password" required value="@if (session('daftar-failed.pw'))<?=session('daftar-failed.pw');?>@endif" pattern="^(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[a-zA-Z])\S{7,}\S$">
+                        <input type="password" class="form-control @if(session('daftar-failed')) <?= "is-invalid" ?> @endif)" id="password" name="password" required value="@if (session('daftar-failed.pw')){{session('daftar-failed.pw')}}@endif">
+                        {{-- pattern="^(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[a-zA-Z])\S{7,}\S$" --}}
                         <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="bi bi-eye-slash" aria-hidden="true"></i></button>
                     </div>
                     <div id="passwordHelpBlock" class="form-text">
-                        Panjang Password harus 8-15 karakter, tidak mengandung spasi, karakter spesial,
-                        atau emoji.
+                        {{-- Panjang Password harus 8-15 karakter, tidak mengandung spasi, karakter spesial,
+                        atau emoji. --}}
                     </div>
                 </div>
                 <div class="mb-3 ms-3 me-3">
                     <label for="password2" class="form-label">Konfirmasi Kata Sandi</label>
                     <div class="input-group" id="show_hide_password">
-                        <input type="password" name="password2" class="form-control @if(session('daftar-failed')) <?= "is-invalid" ?> @endif)" required pattern="^(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[a-zA-Z])\S{7,}\S$">
+                        <input type="password" name="password2" class="form-control @if(session('daftar-failed')) is-invalid @endif)" required>
+                        {{-- pattern="^(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[a-zA-Z])\S{7,}\S$" --}}
                         <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="bi bi-eye-slash" aria-hidden="true"></i></button>
                         <div class="invalid-feedback">
                             {{session('daftar-failed.msg2')}}

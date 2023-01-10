@@ -14,7 +14,7 @@ class CourseController extends Controller
 
     public function article($idc)
     {
-        $course = course::find($idc)->first();
+        $course = course::find($idc);
         return view('article', compact("course"));
     }
 }

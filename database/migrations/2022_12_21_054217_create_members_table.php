@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('biography')->default('');
             $table->string('no_hp')->default('');
             $table->longText('alamat')->default('');
+            $table->string('profilePic')->default('');
             $table->timestamps();
         });
     }

@@ -28,11 +28,15 @@
             <h4 class="text-center">{{$post->title}}</h4>
             <div id="question" class="border p-3 rounded">
                 <div class="d-flex border-bottom mb-3">
-                    <a class="nav-link flex-grow-1" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                        </svg>
+                    <a class="nav-link flex-grow-1" href="{{route('profil',$post->members->id)}}">
+                        @if($post->members->profilePic == "")
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            </svg>
+                        @else
+                            <img src="{{asset('storage/uploaded/profile/'.$post->members->profilePic)}}" style="max-height:24px;" class="rounded-circle" alt="user" />
+                        @endif
                         {{$post->members->name}}
                     </a>
                     <p class="fw-light" style="font-size: small;">{{$post->created_at->diffForHumans()}}</p>
@@ -42,11 +46,15 @@
             @foreach ($post->comments as $comment)
                 <div id="jawaban" class="border rounded my-4 ms-4 p-3">
                     <div class="d-flex border-bottom mb-3">
-                        <a class="nav-link flex-grow-1" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                            </svg>
+                        <a class="nav-link flex-grow-1" href="{{route('profil',$comment->members->id)}}">
+                            @if($comment->members->profilePic == "")
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                            @else
+                                <img src="{{asset('storage/uploaded/profile/'.$comment->members->profilePic)}}" style="max-height:24px;" class="rounded-circle" alt="user" />
+                            @endif
                             {{$comment->members->name}}
                         </a>
                         <p class="fw-light" style="font-size: small;">{{$comment->created_at->diffForHumans()}}</p>
