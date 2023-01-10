@@ -9,7 +9,6 @@
                         <th scope="col">ID Course</th>
                         <th scope="col">Nama Course</th>
                         <th scope="col">Deskripsi</th>
-                        <th scope="col">Image</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -20,10 +19,10 @@
                         <td>{{ $c->id }}</td>
                         <td>{{ $c->name }}</td>
                         <td>{{ $c->deskripsi }}</td>
-                        <td>{{ $c->img }}</td>
                         <td>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-{{$c->id}}">Edit</button>
                             <button type="button" class="btn btn-danger" onclick="if (confirm('Yakin ingin menghapus data tersebut ?')) {window.location.href = '{{ route('delete-course', $c->id)}}';}">Delete</button>
+                            <a href="{{route('admin-article',$c->id)}}" class="btn btn-info">Article</a>
                         </td>
                     </tr>
                     <div class="modal fade" id="edit-{{$c->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -48,7 +47,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="img" class="form-label fw-bold">Image</label>
-                                            <img class="rounded-3 mb-2 mx-auto shadow img-thumbnail" src="@isset($c){{asset('storage/uploaded/'.$c.'/'.$c->img)}}@endisset" alt="@isset($c) <?=$c->judul?> @endisset" style="max-height:240px;width:100%;max-width:100%; object-fit: cover; object-position: 25% 25%;">
+                                            <img class="rounded-3 mb-2 mx-auto shadow img-thumbnail" src="{{asset('storage/uploaded/Course/'.$c->img)}}" alt="@isset($c) <?=$c->judul?> @endisset" style="max-height:240px;width:100%;max-width:100%; object-fit: cover; object-position: 25% 25%;">
                                             <input class="form-control col me-5" type="file" name="img" accept=".jpg,.png,.jpeg">
                                         </div>
                                         <input type="hidden" value="{{ $c->id }}" name="id">

@@ -12,9 +12,9 @@ class CourseController extends Controller
         return view('course', compact("course"));
     }
 
-    public function article()
+    public function article($idc)
     {
-        $article = article::all();
-        return view('article', compact("article"));
+        $course = course::find($idc)->first();
+        return view('article', compact("course"));
     }
 }

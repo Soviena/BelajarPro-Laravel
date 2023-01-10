@@ -30,11 +30,13 @@ class adminController extends Controller
         return view('Admin-Panel-User', compact("member"));
     }
 
-    public function article()
+    public function article($cid)
     {
         if(!session('admin',FALSE) == "TRUE") return redirect()->route('home');
-        $article = article::all();
-        return view('Admin-Panel-Article', compact("article"));
+        $article = course::find($cid)->articles()->get();
+        $data['article'] = $article;
+        $data['cid'] = $cid;
+        return view('Admin-Panel-Article', compact("data"));
     }
 
     public function edit_user(Request $request)
@@ -57,7 +59,7 @@ class adminController extends Controller
         return redirect()->route('admin-user');
     }
 
-    public function edit_article(Request $request)
+    public function edit_article(Request $request, $idc)
     {
         $article = article::find($request->id);
         $article->chapter=$request->chapter;
@@ -65,7 +67,7 @@ class adminController extends Controller
         
         $article->save();
         
-        return redirect()->route('admin-article');
+        return redirect()->route('admin-article', $idc);
     }
 
     public function edit_course(Request $request)
@@ -105,12 +107,12 @@ class adminController extends Controller
     public function add_article(Request $request)
     {
         $article = new article;
-        $article->chapter=$request->chapter;
-        $article->deskripsi=$request->deskripsi;
-
+        $article->course_id = $request->courseId;
+        $article->chapter = $request->chapter;
+        $article->deskripsi = $request->deskripsi;
         $article->save();
         
-        return redirect()->route('article-course');
+        return redirect()->route('admin-article',$request->courseId);
     }
 
     public function delete_course($id)
@@ -122,12 +124,12 @@ class adminController extends Controller
         return redirect()->route('admin-course');
     }
 
-    public function delete_chapter($id)
+    public function delete_chapter($idc, $ida)
     {
-        $article = article::find($id);
+        $article = article::find($ida);
         $article->delete();
         
-        return redirect()->route('admin-article');
+        return redirect()->route('admin-article',$idc);
     }
     
 }
