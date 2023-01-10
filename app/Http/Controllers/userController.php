@@ -41,11 +41,24 @@ class userController extends Controller
 
     public function addUser(Request $request){
         $u = DB::table('members')->where('email',$request->email)->first();
-        if($u) return redirect()->route('daftar')->with('email-exist','email must be unique');
-        if($request->password != $request->password2) return redirect()->route('daftar')->with('password-not-match','please try again');
+        $email = $request->email;
+        $pw = $request->password;
+        if($u){
+            return redirect()->route('daftar')->with('daftar-failed',[
+                'msg1' => 'Maaf, Alamat Email sudah terdaftar, coba alamat email lain!.',
+                'msg2' => '',
+                'email' => $email,
+                'pw'=>''
+            ]);
+        }else if($pw != $request->password2) return redirect()->route('daftar')->with('daftar-failed',[
+            'msg1' => '',
+            'msg2' => 'Maaf, Konfirmasi password salah!',
+            'email' => $email,
+            'pw'=>$pw
+        ]);
         $user = new member;
         $user->name = $request->name;
-        $user->email = $request->email;
+        $user->email = $email;
         $user->password = $request->password;
         $user->save();
         return redirect()->route('masuk')->with('regist-success','Berhasil daftar');
@@ -53,9 +66,13 @@ class userController extends Controller
 
     public function masuk(Request $request){
         $u = DB::table('members')->where('email',$request->email)->first();
-        // $a = $request->password;
-        // error_log("$a");
-        if ($u && $u->password == $request->password) {
+        if(!$u){
+            return redirect()->route('masuk')->with('login-failed',[
+                'msg1' => 'Maaf, Alamat Email tidak terdaftar!.',
+                'msg2' => '',
+                'email' => $request->email
+            ]);
+        }   else if ($u->password == $request->password) {
             session(['loggedin' => TRUE]);
             session(['uid' => $u->id]);
             session(['email' => $u->email]);
@@ -71,7 +88,11 @@ class userController extends Controller
             }
             return redirect()->route('home')->with('login-success','Berhasil login');
         }else{
-            return redirect()->route('masuk')->with('login-failed','Password atau email salah');
+            return redirect()->route('masuk')->with('login-failed',[
+                'msg' => '',
+                'msg2' => 'Maaf, Password yang dimasukkan salah!.',
+                'email' => $request->email
+            ]);
         }
     }
 
