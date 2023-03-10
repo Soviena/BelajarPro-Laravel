@@ -1,0 +1,11 @@
+.row-bel {
+    /* background-color: #40514E; */
+    background: rgb(48,227,202);
+background: linear-gradient(52deg, rgba(48,227,202,1) 0%, rgba(228,249,245,1) 100%);
+}
+/* https://colorhunt.co/palette/e4f9f530e3ca11999e40514e */
+
+.card-bel{
+    background-color: #E4F9F5;
+    margin-bottom: 80px;
+}
