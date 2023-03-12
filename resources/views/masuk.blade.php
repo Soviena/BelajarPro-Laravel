@@ -6,8 +6,8 @@
     // error_log($data['remember']);
     // error_log("22");
     ?>
-    <div class="row justify-content-center border">
-        <div class="col-4 mt-5 border border-success">
+    <div class="row justify-content-center border rounded row-bel">
+        <div class="col-4 mt-5 rounded card-bel">
             <form class="form-floating needs-validation" action="{{route('submit')}}" method="POST">
                 @csrf
                 <h1 class="mt-3 text-center">Masuk</h1>
