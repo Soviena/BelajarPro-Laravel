@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->longText('biography')->default('');
-            $table->string('no_hp')->default('');
-            $table->longText('alamat')->default('');
-            $table->string('profilePic')->default('');
+            $table->longText('biography')->nullable($value = true);
+            $table->string('no_hp')->nullable($value = true);
+            $table->longText('alamat')->nullable($value = true);
+            $table->string('profilePic')->nullable($value = true);	
             $table->timestamps();
         });
     }
