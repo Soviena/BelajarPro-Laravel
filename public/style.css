@@ -1,6 +1,6 @@
 .row-bel {
     /* background-color: #40514E; */
-    background: rgb(48,227,202);
+background: rgb(48,227,202);
 background: linear-gradient(52deg, rgba(48,227,202,1) 0%, rgba(228,249,245,1) 100%);
 }
 /* https://colorhunt.co/palette/e4f9f530e3ca11999e40514e */
@@ -8,4 +8,22 @@ background: linear-gradient(52deg, rgba(48,227,202,1) 0%, rgba(228,249,245,1) 10
 .card-bel{
     background-color: #E4F9F5;
     margin-bottom: 80px;
+    
+}
+
+.row-dash-bel{
+    /*background : rgb(191, 220, 229);*/
+    background: rgb(48,227,202);
+    background: linear-gradient(180deg, rgba(48,227,202,1) 0%, rgba(228,249,245,1) 100%);
+}
+
+.card-dash-bel{
+    background-color: #B9FFF8;
+    /*background: rgb(58, 16, 120);*/
+    color : #11999E;
+
+}
+
+.dash-h1{
+    color: rgb(58, 16, 120);
 }
