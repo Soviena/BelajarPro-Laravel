@@ -2,8 +2,8 @@
 @section('content')
 
         <section id="course_mngmnt">
-            <div class="container">
-                <table class="table table-striped">
+            <div class="container table-bel">
+                <table class="table table-light">
                     <thead>
                     <tr>
                         <th scope="col">ID Course</th>

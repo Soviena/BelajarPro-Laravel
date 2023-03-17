@@ -10,7 +10,7 @@
                         </h1>
                             <div class="container-fluid">
                                 <div class="row">
-                                <div class="col "  style="text-align: center;">
+                                <div class="col" style="text-align: center;">
                                     Ingin belajar codingan tapi dapat referensi bahasa Inggris semua, yuk belajar disini aja.
                                     Di Website ini aja, disini anda dapat menemukan referensi dengan bahasa Indonesia 
                                     dan jika kamu bingung disini menyediakan  beberapa fitur, seperti komunitas diskusi dan mentoring

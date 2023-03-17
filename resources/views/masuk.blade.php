@@ -1,12 +1,8 @@
 @extends('layout.layout')
 @section('content')
 
-<div class="container">
-    <?php
-    // error_log($data['remember']);
-    // error_log("22");
-    ?>
-    <div class="row justify-content-center border rounded row-bel">
+<div class="container" style="margin-bottom:101px">
+    <div class="row justify-content-center rounded">
         <div class="col-4 mt-5 rounded card-bel">
             <form class="form-floating needs-validation" action="{{route('submit')}}" method="POST">
                 @csrf

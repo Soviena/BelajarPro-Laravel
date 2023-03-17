@@ -2,8 +2,8 @@
 @section('content')
 
         <section id="user_management">
-            <div class="container">
-                <table class="table table-striped">
+            <div class="container table-bel">
+                <table class="table table-light">
                     <thead>
                     <tr>
                         <th scope="col">ID User</th>
