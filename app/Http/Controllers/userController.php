@@ -126,7 +126,7 @@ class userController extends Controller
             $member->profilePic = $profilePic->hashName();
         }
         $member->save();
-        return redirect()->route('profil');
+        return redirect()->route('profil',$request->id);
     }
 
     public function quiz(Request $request){

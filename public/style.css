@@ -9,21 +9,25 @@
 
 .card-bel {
     background-color: rgb(228, 249, 245);
-    
-    /* background: rgba(228, 249, 245, 0.5);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11.1px);
-    -webkit-backdrop-filter: blur(11.1px); */
-
-/* background: rgba(17, 153, 158, 0.27);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(6.7px);
--webkit-backdrop-filter: blur(6.7px);
-border: 1px solid rgba(17, 153, 158, 0.06); */
 }
 
 .table-bel {
     margin-top: 20px;
+}
+
+.row-dash-bel{
+    /*background : rgb(191, 220, 229);*/
+    background: rgb(48,227,202);
+    background: linear-gradient(180deg, rgba(48,227,202,1) 0%, rgba(228,249,245,1) 100%);
+}
+
+.card-dash-bel{
+    background-color: #B9FFF8;
+    /*background: rgb(58, 16, 120);*/
+    color : #11999E;
+
+}
+
+.dash-h1{
+    color: rgb(58, 16, 120);
 }
