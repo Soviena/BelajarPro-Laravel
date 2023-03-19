@@ -122,6 +122,9 @@ class userController extends Controller
         }
         if($request->hasfile('img')){
             $profilePic = $request->file('img');
+            list($width, $height) = getimagesize($uploaded_file);
+            $aspect_ratio = $width / $height;
+            if ($aspect_ratio != 1) return;
             $profilePic->storeAs('public/uploaded/profile/',$profilePic->hashName());
             $member->profilePic = $profilePic->hashName();
         }
