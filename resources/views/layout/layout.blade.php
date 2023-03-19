@@ -20,7 +20,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
 
-    <body>
+    <body class="row-bel" style="min-height:100vh">
         <header style="height: 15vh;">
             <nav class="navbar navbar-expand-md p-1 mb-3 mx-5 my-1 border shadow rounded fixed-top bg-light" aria-label="Navbar">
                 <div class="container-fluid">

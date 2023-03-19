@@ -1,8 +1,8 @@
 @extends('layout.layout')
 @section('content')
 <div class="container">
-    <div class="row justify-content-center border">
-        <div class="col-4 mt-5 border border-success">
+    <div class="row justify-content-center rounded" style="margin-bottom: 40px;">
+        <div class="col-4 mt-5 rounded card-bel">
             <form class="" action="{{route('terdaftar')}}" method="POST">
                 @csrf
                 <h1 class="mt-3 text-center">Daftar</h1>

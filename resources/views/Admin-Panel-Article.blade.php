@@ -2,8 +2,8 @@
 @section('content')
 
         <section id="user_management">
-            <div class="container">
-                <table class="table table-striped">
+            <div class="container table-bel">
+                <table class="table table-light">
                     <thead>
                     <tr>
                         <th scope="col">Chapter</th>
@@ -17,9 +17,14 @@
                             <td>{{ $a->chapter }}</td>
                             <td>
                                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-{{$a->id}}">Edit</button>    
-                                <button type="button" class="btn btn-danger" onclick="if (confirm('Yakin ingin menghapus chapter tersebut ?')) {window.location.href = '{{ route('delete-chapter', ['idCourse' => $data['cid'],'idArticle' => $a->id]) }}';}">Delete</button>
+                                <button type="button" class="btn btn-danger" onclick="tes()">Delete</button>
                             </td>
                         </tr>
+                        <script>
+                            function tes(params) {
+                                if (confirm('Yakin ingin menghapus chapter tersebut ?')) {window.location.href = '{{ route("delete-chapter", ["idCourse" => $data["cid"],"idArticle" => $a->id]) }}';};
+                            }
+                        </script>
                         <div class="modal fade" id="edit-{{$a->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
