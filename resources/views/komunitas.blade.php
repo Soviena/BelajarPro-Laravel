@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
     
-<div class="container border rounded shadow-sm my-2 p-4 mb-4">
+<div class="container rounded shadow-sm my-2 p-4 mt-3 mb-4 bg-color-bel">
     <h3 class="border-bottom mb-3">Buat Post Baru</h3>
     <form action="{{route('addPost')}}" method="post">
         @csrf
@@ -24,7 +24,7 @@
 
 <div class="container" id="community">
     @foreach ($posts as $post)
-        <div class="container border rounded shadow-sm my-2 p-4 mb-4" id="">
+        <div class="container border rounded shadow-sm my-2 p-4 mb-4 bg-color-bel">
             <h4 class="text-center">{{$post->title}}</h4>
             <div id="question" class="border p-3 rounded">
                 <div class="d-flex border-bottom mb-3">

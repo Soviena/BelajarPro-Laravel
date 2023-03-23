@@ -21,7 +21,12 @@
                         <td>{{ $m->email  }}</td>
                         <td>
                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-{{$m->id}}">Edit</button>    
-                            <button type="button" class="btn btn-danger" onclick="if (confirm('Yakin ingin menghapus data user tersebut ?')) {window.location.href = '{{ route('delete-user', $m->id) }}';}">Delete</button>
+                            <button type="button" class="btn btn-danger" onclick=confirmBox()>Delete</button>
+                            <script>
+                                function confirmBox() {
+                                    if (confirm("Yakin ingin menghapus data user tersebut ?")) {window.location.href = "{{ route('delete-user', $m->id) }}";};
+                                }
+                            </script>
                         </td>
                     </tr>
                     <div class="modal fade" id="edit-{{$m->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

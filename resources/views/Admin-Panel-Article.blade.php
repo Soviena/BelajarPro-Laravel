@@ -17,14 +17,14 @@
                             <td>{{ $a->chapter }}</td>
                             <td>
                                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-{{$a->id}}">Edit</button>    
-                                <button type="button" class="btn btn-danger" onclick="tes()">Delete</button>
+                                <button type="button" class="btn btn-danger" onclick=confirmBox()>Delete</button>
+                                <script>
+                                    function confirmBox() {
+                                        if (confirm('Yakin ingin menghapus chapter tersebut ?')) {window.location.href = '{{ route("delete-chapter", ["idCourse" => $data["cid"],"idArticle" => $a->id]) }}';};
+                                    }
+                                </script>
                             </td>
                         </tr>
-                        <script>
-                            function tes(params) {
-                                if (confirm('Yakin ingin menghapus chapter tersebut ?')) {window.location.href = '{{ route("delete-chapter", ["idCourse" => $data["cid"],"idArticle" => $a->id]) }}';};
-                            }
-                        </script>
                         <div class="modal fade" id="edit-{{$a->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">

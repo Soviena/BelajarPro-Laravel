@@ -3,7 +3,7 @@
 
 @if (session('loggedin',FALSE))
 <section id="dashboard">
-    <div class="container row-dash-bel">
+    <div class="container row-dash-bel mt-3 pt-2">
         <div class="card mb-3">
             <div class="card-body ">
                 <h1 class="text-info fw-bold" style="text-align: center; ">
@@ -30,7 +30,7 @@
                             {{$c->deskripsi}}
                         </p>
                         <div class="text-center">
-                            <a href="{{route('article',$c->id)}}" class="btn btn-light">Pelajari</a>
+                            <a href="{{route('article',$c->id)}}" class="btn btn-primary">Pelajari</a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                             {{$c->deskripsi}}
                         </p>
                         <div class="text-center">
-                            <a href="{{route('article',$c->id)}}" class="btn btn-light">Pelajari</a>
+                            <a href="{{route('article',$c->id)}}" class="btn btn-primary">Pelajari</a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                             {{$c->deskripsi}}
                         </p>
                         <div class="text-center">
-                            <a href="{{route('article',$c->id)}}" class="btn btn-light">Pelajari</a>
+                            <a href="{{route('article',$c->id)}}" class="btn btn-primary">Pelajari</a>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                             {{$c->deskripsi}}
                         </p>
                         <div class="text-center">
-                            <a href="{{route('article',$c->id)}}" class="btn btn-light">Pelajari</a>
+                            <a href="{{route('article',$c->id)}}" class="btn btn-primary">Pelajari</a>
                         </div>
                     </div>
                 </div>

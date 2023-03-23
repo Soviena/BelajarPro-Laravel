@@ -22,12 +22,16 @@
 }
 
 .card-dash-bel{
-    background-color: #B9FFF8;
+    /* background-color: #B9FFF8; */
+    background-color: white;
     /*background: rgb(58, 16, 120);*/
     color : #11999E;
-
 }
 
 .dash-h1{
     color: rgb(58, 16, 120);
+}
+
+.bg-color-bel{
+    background-color: white;
 }

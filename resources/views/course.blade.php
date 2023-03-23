@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('content')
-<div class="container">
+<div class="container mt-3">
     <h1 class="text-center">Daftar Course</h1>
     <div class="row">
         @foreach($course as $c)
@@ -9,7 +9,7 @@
                 <img src="{{asset('storage/uploaded/Course/'.$c->img)}}" style="height:50%; object-fit: cover; object-position: 25% 25%;">
                 <div class="card-body text-center">
                     <h5 class="card-title text-center"><?=$c->name?></h5>
-                    <p class="text-muted" style="max-height:50px; overflow:hidden; text-overflow:ellipsis;"><?=$c->deskripsi?></p>
+                    <p class="text-muted" style="max-height:50px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"><?=$c->deskripsi?></p>
                     <a href="{{route('article', $c->id)}}" class="btn btn-primary">ikuti</a>
                 </div>
             </div>

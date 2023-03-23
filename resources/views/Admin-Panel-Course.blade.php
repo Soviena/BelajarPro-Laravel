@@ -21,8 +21,13 @@
                         <td>{{ $c->deskripsi }}</td>
                         <td>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-{{$c->id}}">Edit</button>
-                            <button type="button" class="btn btn-danger" onclick="if (confirm('Yakin ingin menghapus data tersebut ?')) {window.location.href = '{{ route('delete-course', $c->id)}}';}">Delete</button>
+                            <button type="button" class="btn btn-danger" onclick="confirmBox()">Delete</button>
                             <a href="{{route('admin-article',$c->id)}}" class="btn btn-info">Article</a>
+                            <script>
+                                function confirmBox() {
+                                    if (confirm('Yakin ingin menghapus data tersebut ?')) {window.location.href = '{{ route("delete-course", $c->id)}}';}
+                                }
+                            </script>
                         </td>
                     </tr>
                     <div class="modal fade" id="edit-{{$c->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
