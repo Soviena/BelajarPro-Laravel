@@ -10,11 +10,11 @@
                                 <form action="{{ route('profil_edit')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row mt-3">
-                                            <div class="col-md-12"><label class="labels">Nama</label><input type="text" class="form-control" name="name" value="{{$u->name}}" placeholder=""></div>
-                                            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" name="email" value="{{$u->email}}" placeholder=""></div>
-                                            <div class="col-md-12"><label class="labels">No HP</label><input type="text" class="form-control" name="no_hp" value="{{$u->no_hp}}" placeholder=""></div>
-                                            <div class="col-md-12"><label class="labels">Alamat</label><input type="text" class="form-control" name="alamat" value="{{$u->alamat}}" placeholder=""></div>
-                                            <div class="col-md-12"><label class="labels">Biography</label><input type="text" class="form-control" name="biography" value="{{$u->biography}}" placeholder=""></div>
+                                            <div class="col-md-12"><label class="labels">Nama</label><input type="text" class="form-control" name="name" value="{{$u->name}}" placeholder="" required></div>
+                                            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" name="email" value="{{$u->email}}" placeholder="" required></div>
+                                            <div class="col-md-12"><label class="labels">No HP</label><input type="text" class="form-control" name="no_hp" value="{{$u->no_hp}}" placeholder="" required></div>
+                                            <div class="col-md-12"><label class="labels">Alamat</label><input type="text" class="form-control" name="alamat" value="{{$u->alamat}}" placeholder="" required></div>
+                                            <div class="col-md-12"><label class="labels">Biography</label><input type="text" class="form-control" name="biography" value="{{$u->biography}}" placeholder="" required></div>
                                         </div>
                                         <div class="row">
                                             <div>
