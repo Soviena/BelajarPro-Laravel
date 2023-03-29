@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -122,9 +121,19 @@ class userController extends Controller
         }
         if($request->hasfile('img')){
             $profilePic = $request->file('img');
-            list($width, $height) = getimagesize($uploaded_file);
+            list($width, $height) = getimagesize($profilePic);
             $aspect_ratio = $width / $height;
-            if ($aspect_ratio != 1) return;
+            if ($aspect_ratio != 1) {
+                $portrait = $aspect_ratio < 1;
+
+                // This will check if the image is portrait or landscape and crop it square accordingly.
+                $profilePic = imagecrop($profilePic, [
+                    "x" => $portrait ? 0 : (($width - $height) / 2),
+                    "y" => $portrait ? (($width - $height) / 2) : 0,
+                    "width"  => $portrait ? $width : $height,
+                    "height" => $portrait ? $width : $height
+                ]);                            
+            };
             $profilePic->storeAs('public/uploaded/profile/',$profilePic->hashName());
             $member->profilePic = $profilePic->hashName();
         }
