@@ -35,53 +35,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="col">
-                <div class="card text-white card-dash-bel">
-                    <img src="{{asset('storage/uploaded/Course/'.$c->img)}}" style="height:20vh; object-fit: cover; object-position: 25% 25%;" class="card-img-top" alt="Pemroragrman HTML">
-                    <div class="card-body">
-                        <h2 class="card-dash-bel fw-bold">{{$c->name}}</h2>
-                        <p class="card-dash-bel fs-5">
-                            {{$c->deskripsi}}
-                        </p>
-                        <div class="text-center">
-                            <a href="{{route('article',$c->id)}}" class="btn btn-primary">Pelajari</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card text-white  card-dash-bel">
-                    <img src="{{asset('storage/uploaded/Course/'.$c->img)}}" style="height:20vh; object-fit: cover; object-position: 25% 25%;" class="card-img-top" alt="Pemroragrman HTML">
-                    <div class="card-body">
-                        <h2 class="card-dash-bel fw-bold">{{$c->name}}</h2>
-                        <p class="card-dash-bel fs-5">
-                            {{$c->deskripsi}}
-                        </p>
-                        <div class="text-center">
-                            <a href="{{route('article',$c->id)}}" class="btn btn-primary">Pelajari</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col">
-                <div class="card text-white  card-dash-bel">
-                    <img src="{{asset('storage/uploaded/Course/'.$c->img)}}" style="height:20vh; object-fit: cover; object-position: 25% 25%;" class="card-img-top" alt="Pemroragrman HTML">
-                    <div class="card-body">
-                        <h2 class="card-dash-bel fw-bold">{{$c->name}}</h2>
-                        <p class="card-dash-bel fs-5">
-                            {{$c->deskripsi}}
-                        </p>
-                        <div class="text-center">
-                            <a href="{{route('article',$c->id)}}" class="btn btn-primary">Pelajari</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             @endforeach
 
         </div>
@@ -89,7 +42,6 @@
 
     </div>
 </section>
-
 
 @else
 <section id="dashboard_landing">
