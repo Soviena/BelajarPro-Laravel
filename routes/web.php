@@ -55,3 +55,6 @@ Route::get('/search', [userController::class, 'search'])->name('search');
 //profil
 Route::get('/profil/{idUser}', [userController::class, 'profil'])->name('profil');
 Route::post('/profil/submit', [userController::class, 'profil_edit'])->name('profil_edit');
+
+// Route::get('/daftar/mentor_form', [userController::class, 'form_mentor'])->name('form_mentor');
+// Route::post('/daftar/mentor_form/submit', [userController::class, 'daftar_mentor'])->name('mentor_submit');
