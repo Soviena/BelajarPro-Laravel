@@ -45,10 +45,16 @@
                                 <h6>Biography</h6>
                                     " {{$u->biography}} "
                             </div>
+                            <a class="btn btn-primary" style="margin-top: 20px;"  data-bs-toggle="tooltip" data-bs-placement="left" title="Daftar Menjadi Mentor" href="https://forms.office.com/r/NtQpGgBP27">Daftar Mentor</a>
                         </div>
                     </div>    
                 </div>
             </div>
 
-
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
     @endsection
