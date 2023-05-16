@@ -124,11 +124,10 @@ class userController extends Controller
             $nameFile = $profilePic->hashName();
             list($width, $height) = getimagesize($profilePic);
             $aspect_ratio = $width / $height;
+            $profilePic = imagecreatefromjpeg($request->file('img'));
             if ($aspect_ratio != 1) {
                 $portrait = $aspect_ratio < 1;
-
                 // This will check if the image is portrait or landscape and crop it square accordingly.
-                $profilePic = imagecreatefromjpeg($request->file('img'));
                 $profilePic = imagecrop($profilePic, [
                     "x" => $portrait ? 0 : (($width - $height) / 2),
                     "y" => $portrait ? (($width - $height) / 2) : 0,
