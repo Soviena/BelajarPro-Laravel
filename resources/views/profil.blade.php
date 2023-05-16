@@ -19,7 +19,7 @@
                                         <div class="row">
                                             <div>
                                                 <label for="formFile" class="form-label">Upload Picture</label>
-                                                <input class="form-control col me-5" type="file" name="img" id="formFile" accept=".jpg,.png,.jpeg">
+                                                <input class="form-control col me-5" type="file" name="img" id="formFile" accept=".jpg,.jpeg">
                                             </div>
                                         </div>
                                         <input type="hidden" value="{{ $u->id }}" name="id">

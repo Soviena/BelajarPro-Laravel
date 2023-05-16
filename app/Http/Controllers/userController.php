@@ -121,12 +121,14 @@ class userController extends Controller
         }
         if($request->hasfile('img')){
             $profilePic = $request->file('img');
+            $nameFile = $profilePic->hashName();
             list($width, $height) = getimagesize($profilePic);
             $aspect_ratio = $width / $height;
             if ($aspect_ratio != 1) {
                 $portrait = $aspect_ratio < 1;
 
                 // This will check if the image is portrait or landscape and crop it square accordingly.
+                $profilePic = imagecreatefromjpeg($request->file('img'));
                 $profilePic = imagecrop($profilePic, [
                     "x" => $portrait ? 0 : (($width - $height) / 2),
                     "y" => $portrait ? (($width - $height) / 2) : 0,
@@ -134,8 +136,8 @@ class userController extends Controller
                     "height" => $portrait ? $width : $height
                 ]);                            
             };
-            $profilePic->storeAs('public/uploaded/profile/',$profilePic->hashName());
-            $member->profilePic = $profilePic->hashName();
+            imagejpeg($profilePic, storage_path('app/public/uploaded/profile/') . $nameFile, 90);
+            $member->profilePic = $nameFile;
         }
         $member->save();
         return redirect()->route('profil',$request->id);
