@@ -27,7 +27,7 @@
                     Not Found
                 @else
                     @foreach ($data['articles'] as $a)
-                        <a href="{{route('article',$a->id)}}">{{$a->chapter}}</a>
+                        <a href="{{route('article',$a->course_id)}}">{{$a->chapter}}</a>
                     @endforeach  
                 @endif
             </div>
