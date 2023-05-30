@@ -12,7 +12,6 @@
                     </thead>
                     <tbody>
                     @foreach($data['article'] as $a)
-
                         <tr>
                             <td>{{ $a->chapter }}</td>
                             <td>
@@ -41,7 +40,7 @@
                                                 <label for="chapter" class="form-label fw-bold">Chapter</label>
                                                 <input type="text" class="form-control" name="chapter" value="{{ $a->chapter  }}">
                                             </div>
-                                            <div class="mb-2" id="editor">
+                                            <div class="mb-2">
                                                 <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
                                                 <textarea type="text" class="form-control" id="editor-{{$a->id}}" name="deskripsi" rows="10" value="">{{$a->deskripsi}}</textarea>
                                             </div>
@@ -53,12 +52,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                        <script>
-                            var quill = new Quill('#editor-{{$a->id}}', {
-                              theme: 'snow'
-                            });
-                        </script>                        
+                        </div>               
                     @endforeach
                     </tbody>
                 </table>
@@ -81,18 +75,13 @@
                                         </div>
                                         <div class="mb-2">
                                             <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
-                                            <textarea type="text" class="form-control" id="editor-new" name="deskripsi" rows="10" value=""></textarea>
+                                            <textarea type="text" class="form-control" name="deskripsi" rows="10" value=""></textarea>
                                         </div>
                                     <div class="modal-footer">
                                         <input type="hidden" name="courseId" value="{{$data['cid']}}">
                                         <input type="submit" class="btn btn-warning" value="Simpan">
                                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                    <script>
-                                        var quill = new Quill('#editor-new', {
-                                          theme: 'snow'
-                                        });
-                                    </script>                                        
+                                    </div>                                   
                                 </form>
                             </div>
                         </div>

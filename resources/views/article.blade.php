@@ -14,9 +14,11 @@
             <div class="tab-content" id="v-pills-tabContent" style="padding-left: 30px;">
                 @if ($course->articles != "[]")
                     @foreach ($course->articles as $article)                    
-                        <div class="tab-pane fade show @if($loop->first) active @endif" id="idArticle-{{$article->id}}" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                            {!! $article->deskripsi !!}                    
+                        <div class="tab-pane fade show @if($loop->first) active @endif" id="idArticle-{{$article->id}}" role="tabpanel" aria-labelledby="v-pills-home-tab">                            
                         </div>
+                        <script>
+                            document.getElementById('idArticle-{{$article->id}}').innerHTML = marked.parse(`{!! $article->deskripsi !!}`);
+                        </script>
                     @endforeach                    
                 @else
                     <h1>OOPS, COURSE MASIH KOSONG</h1>
@@ -24,6 +26,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection
