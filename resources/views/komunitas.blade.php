@@ -14,12 +14,26 @@
             <textarea class="form-control mb-3" aria-label="With textarea" name="desc" rows="3"></textarea>
         </div>
         <div class="row">
+            <label for="questionBox" class="form-label">Tag</label>
+            <textarea class="form-control mb-3" aria-label="With textarea" name="tag" rows="3"></textarea>
+        </div>
+        <div class="row">
             {{-- <label for="formFile" class="form-label">Upload gambar</label>
             <input class="form-control col me-5" type="file" id="formFile" accept=".jpg,.png,.jpeg"> --}}
             <input type="hidden" value="{{session('uid')}}" name="uid">
             <input class="btn btn-primary col"type="submit" value="Buat post">
         </div>
     </form>
+</div>
+
+<div class="container rounded shadow-sm my-2 p-4 mt-3 mb-4 bg-color-bel">
+    <div class="col">
+        <label for="questionBox" class="form-label">Filter</label>
+        <input class="form-control mb-3" aria-label="With textarea" name="title">
+    </div>
+    <div class="col">
+        <input class="btn btn-primary col"type="submit" value="Filter">
+    </div>
 </div>
 
 <div class="container" id="community">
