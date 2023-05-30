@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('no_hp')->nullable($value = true);
             $table->longText('alamat')->nullable($value = true);
             $table->string('profilePic')->nullable($value = true);	
+            $table->enum('verified',['TRUE','FALSE'])->default('FALSE');
             $table->timestamps();
         });
     }

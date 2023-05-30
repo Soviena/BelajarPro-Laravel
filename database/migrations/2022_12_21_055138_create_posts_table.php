@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('author_id')->constrained('members')->onUpdate('cascade')->onDelete('cascade');
             $table->string('title');
             $table->longText('deskripsi');
+            $table->longText('tags');
             $table->timestamps();
         });
     }
