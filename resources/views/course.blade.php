@@ -10,7 +10,10 @@
                 <div class="card-body text-center">
                     <h5 class="card-title text-center"><?=$c->name?></h5>
                     <p class="text-muted" style="max-height:50px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"><?=$c->deskripsi?></p>
+                    @if (session('loggedin',FALSE))
                     <a href="{{route('article', $c->id)}}" class="btn btn-primary">ikuti</a>
+                    @endif
+                    <a href="{{route('article', $c->id)}}" class="btn btn-outline-primary">Lihat</a>
                 </div>
             </div>
         </div>
