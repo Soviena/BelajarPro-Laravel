@@ -66,7 +66,7 @@
                                     @endif
                                     <li><a class="dropdown-item" href="{{route('profil',session('uid'))}}">Profil</a></li>
                                     <li><a class="dropdown-item" href="#">Pesan</a></li>
-                                    <li><a class="dropdown-item" href="#">Kursus ku</a></li>
+                                    <li><a class="dropdown-item" href="{{route('mycourse')}}">Kursus ku</a></li>
                                     <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                                     <li><a class="dropdown-item" href="{{route('keluar')}}">Logout</a></li>
                                 </ul>
