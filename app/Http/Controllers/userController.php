@@ -33,6 +33,11 @@ class userController extends Controller
         $courses = course::all();
         return view('Dashboard', compact('courses'));
     }
+
+    public function mycourse(){
+        $mycourses = course::all();
+        return view('mycourse', compact('mycourses'));
+    }
     
     public function daftar(){
         if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
