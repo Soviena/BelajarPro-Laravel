@@ -7,15 +7,15 @@
         @csrf
         <div class="row">
             <label for="questionBox" class="form-label">Pertanyaan</label>
-            <input class="form-control mb-3" aria-label="With textarea" name="title">
+            <input class="form-control mb-3" required aria-label="With textarea" name="title">
         </div>
         <div class="row">
             <label for="questionBox" class="form-label">Deskripsi</label>
-            <textarea class="form-control mb-3" aria-label="With textarea" name="desc" rows="3"></textarea>
+            <textarea class="form-control mb-3" required aria-label="With textarea" name="desc" rows="3"></textarea>
         </div>
         <div class="row">
             <label for="questionBox" class="form-label">Tag</label>
-            <textarea class="form-control mb-3" aria-label="With textarea" name="tag" rows="3"></textarea>
+            <textarea class="form-control mb-3" required aria-label="With textarea" name="tag" rows="3"></textarea>
         </div>
         <div class="row">
             {{-- <label for="formFile" class="form-label">Upload gambar</label>
@@ -27,13 +27,16 @@
 </div>
 
 <div class="container rounded shadow-sm my-2 p-4 mt-3 mb-4 bg-color-bel">
-    <div class="col">
-        <label for="questionBox" class="form-label">Filter</label>
-        <input class="form-control mb-3" aria-label="With textarea" name="title">
-    </div>
-    <div class="col">
-        <input class="btn btn-primary col"type="submit" value="Filter">
-    </div>
+    <form action="">
+        @csrf
+        <div class="col">
+            <label for="questionBox" class="form-label">Filter</label>
+            <input class="form-control mb-3" required aria-label="With textarea" name="title">
+        </div>
+        <div class="col">
+            <input class="btn btn-primary col"type="submit" value="Filter">
+        </div>
+    </form>
 </div>
 
 <div class="container" id="community">
@@ -83,7 +86,7 @@
                     @csrf
                     <div class="row">
                         <label for="questionBox" class="form-label">Jawaban</label>
-                        <textarea class="form-control mb-3" aria-label="With textarea" name="comment" rows="3"></textarea>
+                        <textarea class="form-control mb-3" required aria-label="With textarea" name="comment" rows="3"></textarea>
                     </div>
                     <div class="row">
                         {{-- <label for="formFile" class="form-label">Upload gambar</label>

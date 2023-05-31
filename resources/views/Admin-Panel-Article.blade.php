@@ -25,7 +25,7 @@
                             </td>
                         </tr>
                         <div class="modal fade" id="edit-{{$a->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-fullscreen modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
@@ -41,14 +41,22 @@
                                                 <input type="text" class="form-control" name="chapter" value="{{ $a->chapter  }}">
                                             </div>
                                             <div class="mb-2">
-                                                <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
-                                                <textarea type="text" class="form-control" id="editor-{{$a->id}}" name="deskripsi" rows="10" value="">{{$a->deskripsi}}</textarea>
+                                                <label for="deskripsi" class="form-label fw-bold">Deskripsi & Preview</label>
+                                                <div class="row">
+                                                    <textarea type="text" onchange=updatePreview("editor-{{$a->id}}","preview-{{$a->id}}") class="form-control col" name="deskripsi" rows="10" value="" id="editor-{{$a->id}}" style="max-height:70vh;overflow-y:scroll">{{$a->deskripsi}}</textarea>
+                                                    <div class="col border" id="preview-{{$a->id}}" style="max-height:70vh;overflow-y:scroll">
+    
+                                                    </div>                                                
+                                                </div>
                                             </div>
                                             <input type="hidden" value="{{ $a->id }}" name="id">
                                         <div class="modal-footer">
                                             <input type="submit" class="btn btn-secondary" value="Edit">
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                                         </div>
+                                        <script>
+                                            document.getElementById("preview-{{$a->id}}").innerHTML = marked.parse(document.getElementById("editor-{{$a->id}}").value)
+                                        </script>
                                     </form>
                                 </div>
                             </div>
@@ -58,7 +66,7 @@
                 </table>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Add Article</button>
                 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-fullscreen modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Tambah Artikel</h5>
@@ -74,8 +82,13 @@
                                             <input type="text" class="form-control" name="chapter" value="">
                                         </div>
                                         <div class="mb-2">
-                                            <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
-                                            <textarea type="text" class="form-control" name="deskripsi" rows="10" value=""></textarea>
+                                            <label for="deskripsi col-6" class="form-label fw-bold">Deskripsi & Preview</label>
+                                            <div class="row">
+                                                <textarea type="text" onchange=updatePreview("newText","previewText") class="form-control col" name="deskripsi" rows="10" style="max-height:70vh;overflow-y:scroll" value="" id="newText"></textarea>
+                                                <div class="container-fluid col border" id="previewText" style="max-height:70vh;overflow-y:scroll">
+
+                                                </div>
+                                            </div>
                                         </div>
                                     <div class="modal-footer">
                                         <input type="hidden" name="courseId" value="{{$data['cid']}}">
@@ -89,5 +102,12 @@
                 </div>
             </div>
         </section>
-@endsection        
+@endsection
 
+@section('script')
+    <script>
+        function updatePreview(text,preview) {
+            document.getElementById(preview).innerHTML = marked.parse(document.getElementById(text).value)
+        }
+    </script>
+@endsection
