@@ -20,6 +20,7 @@ class komunitasController extends Controller
         $post->author_id = $request->uid;
         $post->title = $request->title;
         $post->deskripsi = $request->desc;
+        $post->tags = $request->tags;
         $post->save();
         return redirect()->route('komunitas');
     }

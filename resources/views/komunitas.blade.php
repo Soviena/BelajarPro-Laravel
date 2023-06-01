@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <label for="questionBox" class="form-label">Tag</label>
-            <textarea class="form-control mb-3" required aria-label="With textarea" name="tag" rows="3"></textarea>
+            <textarea class="form-control mb-3" required aria-label="With textarea" name="tags" rows="3"></textarea>
         </div>
         <div class="row">
             {{-- <label for="formFile" class="form-label">Upload gambar</label>
@@ -27,11 +27,10 @@
 </div>
 
 <div class="container rounded shadow-sm my-2 p-4 mt-3 mb-4 bg-color-bel">
-    <form action="">
-        @csrf
+    <form action="{{route('komunitas')}}" method="GET">
         <div class="col">
             <label for="questionBox" class="form-label">Filter</label>
-            <input class="form-control mb-3" required aria-label="With textarea" name="title">
+            <input class="form-control mb-3" aria-label="With textarea" name="tags" value="{{ request()->input('tags', '') }}">
         </div>
         <div class="col">
             <input class="btn btn-primary col"type="submit" value="Filter">
@@ -41,6 +40,24 @@
 
 <div class="container" id="community">
     @foreach ($posts as $post)
+        @if (request()->has('tags'))
+            @php
+                $tags = explode(' ', request('tags'));
+                $containsAllWords = true;
+            @endphp
+            @foreach ($tags as $tag)
+                @if (!(str_contains($post->tags, $tag) || str_contains($post->title, $tag) || str_contains($post->deskripsi, $tag) ))
+                    @php
+                        $containsAllWords = false;
+                        break;
+                    @endphp
+                @endif
+            @endforeach
+            @if (!$containsAllWords)
+                @continue
+            @endif
+        @endif
+
         <div class="container border rounded shadow-sm my-2 p-4 mb-4 bg-color-bel">
             <h4 class="text-center">{{$post->title}}</h4>
             <div id="question" class="border p-3 rounded">
