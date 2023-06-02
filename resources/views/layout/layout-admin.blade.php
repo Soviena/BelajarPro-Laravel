@@ -24,16 +24,16 @@
         <header style="height: 15vh;">
             <nav class="navbar navbar-expand-md p-1 mb-3 mx-5 my-1 border shadow rounded fixed-top bg-light" aria-label="Navbar">
                 <div class="container-fluid">
-                    <a class="navbar-brand my-4" href="#">Admin Panel BelajarPro</a>
+                    <a class="navbar-brand my-4" href="#">Admin Panel</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     
                     <div class="collapse navbar-collapse my-2" id="navbar">
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                            <li><a href="{{route('home')}}" class="nav-link px-2 link-secondary">Home</a></li>
-                            <li><a href="{{route('admin-course')}}" class="nav-link px-2 link-secondary">Course</a></li>
-                            <li><a href="{{route('admin-user')}}" class="nav-link px-2 link-secondary">User</a></li>
+                            <li><a href="{{route('home')}}" class="nav-link px-2 link-secondary">Beranda</a></li>
+                            <li><a href="{{route('admin-course')}}" class="nav-link px-2 link-secondary">Kursus</a></li>
+                            <li><a href="{{route('admin-user')}}" class="nav-link px-2 link-secondary">Pengguna</a></li>
                         </ul>
                         <form class="me-5" style="width: 20%;" role="search" action="{{route('search')}}" method="GET">
                             <input class="form-control" type="search" name="query" placeholder="Cari kursus, orang, forum, mentor..." aria-label="Search">
@@ -47,22 +47,25 @@
                         @if (session('loggedin',FALSE))
                             <div class="nav-item dropdown">
                                 <a class="nav-link my-3 me-5" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                                    </svg>
+                                    @if(session('profilePic') == "")
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg>
+                                    @else
+                                        <img src="{{asset('storage/uploaded/profile/'.session('profilePic'))}}" style="max-height:24px;" class="rounded-circle" alt="user" />
+                                    @endif
                                     {{session('name')}}
                                 </a>
                                 <ul class="dropdown-menu">
                                     @if (session('admin',FALSE) == "TRUE")
-                                        <li><a class="dropdown-item" href="{{route('admin')}}">Admin Panel</a></li>
-                                    @else
-                                        <li><a class="dropdown-item" href="profil.html">Profil</a></li>
+                                        <li><a class="dropdown-item" href="{{route('admin')}}">Panel Admin</a></li>
+                                        <li><a class="dropdown-item" href="{{route('profil',session('uid'))}}">Profil</a></li>
                                         <li><a class="dropdown-item" href="#">Pesan</a></li>
-                                        <li><a class="dropdown-item" href="#">Kursus ku</a></li>
+                                        <li><a class="dropdown-item" href="{{route('mycourse')}}">Kursus ku</a></li>
                                         <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                                     @endif
-                                    <li><a class="dropdown-item" href="{{route('keluar')}}">Logout</a></li>
+                                    <li><a class="dropdown-item" href="{{route('keluar')}}">Keluar</a></li>
                                 </ul>
                             </div>
                         @else

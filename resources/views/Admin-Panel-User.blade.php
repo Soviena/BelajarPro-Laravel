@@ -6,10 +6,10 @@
                 <table class="table table-light">
                     <thead>
                     <tr>
-                        <th scope="col">ID User</th>
+                        <th scope="col">ID Pengguna</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -20,8 +20,8 @@
                         <td>{{ $m->name }}</td>
                         <td>{{ $m->email  }}</td>
                         <td>
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-{{$m->id}}">Edit</button>    
-                            <button type="button" class="btn btn-danger" onclick=confirmBox()>Delete</button>
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-{{$m->id}}">Ubah</button>    
+                            <button type="button" class="btn btn-danger" onclick=confirmBox()>Hapus</button>
                             <script>
                                 function confirmBox() {
                                     if (confirm("Yakin ingin menghapus data user tersebut ?")) {window.location.href = "{{ route('delete-user', $m->id) }}";};
@@ -33,7 +33,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data User</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Ubah Data Pengguna</h5>
                                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
@@ -51,8 +51,8 @@
                                         </div>
                                         <input type="hidden" value="{{ $m->id }}" name="id">
                                     <div class="modal-footer">
-                                        <input type="submit" class="btn btn-secondary" value="Edit">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <input type="submit" class="btn btn-secondary" value="Simpan">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                     </div>
                                 </form>
                             </div>
@@ -61,8 +61,6 @@
                     @endforeach
                     </tbody>
                 </table>
-
-
             </div>
         </section>
 @endsection        
