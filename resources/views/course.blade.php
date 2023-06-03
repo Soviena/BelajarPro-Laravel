@@ -11,7 +11,13 @@
                     <h5 class="card-title text-center"><?=$c->name?></h5>
                     <p class="text-muted" style="max-height:50px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"><?=$c->deskripsi?></p>
                     @if (session('loggedin',FALSE))
-                    <a href="{{route('mycourse', $c->id)}}" class="btn btn-primary">ikuti</a>
+                        @if (isset($mycourses[($loop->index)]))
+                            @if ($c->id == $mycourses[($loop->index)]->id)                                                            
+                                <a href="{{route('addMyCourse', $c->id)}}" class="btn btn-primary disabled">ikuti</a>
+                            @endif
+                        @else
+                            <a href="{{route('addMyCourse', $c->id)}}" class="btn btn-primary">ikuti</a>
+                        @endif
                     @endif
                     <a href="{{route('article', $c->id)}}" class="btn btn-outline-primary">Lihat</a>
                 </div>

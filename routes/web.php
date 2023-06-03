@@ -25,6 +25,11 @@ Route::post('/komunitas/comment/add', [komunitasController::class, 'addComment']
 
 Route::get('/course', [CourseController::class, 'index'])->name('course');
 Route::get('/course/{idCourse}/article', [CourseController::class, 'article'])->name('article');
+Route::get('/course/add/{idCourse}', [CourseController::class, 'addToMyCourse'])->name('addMyCourse');
+Route::get('/user/mycourse/', [CourseController::class, 'myCourse'])->name('myCourse');
+Route::get('/user/mycourse/delete/{idCourse}', [CourseController::class, 'deleteMyCourse'])->name('deleteMyCourse');
+
+
 
 Route::get('/admin', [adminController::class, 'index'])->name('admin');
 
@@ -56,7 +61,6 @@ Route::get('/search', [userController::class, 'search'])->name('search');
 Route::get('/profil/{idUser}', [userController::class, 'profil'])->name('profil');
 Route::post('/profil/submit', [userController::class, 'profil_edit'])->name('profil_edit');
 
-Route::get('/user/mycourse/', [userController::class, 'mycourse'])->name('mycourse');
 
 // Route::get('/daftar/mentor_form', [userController::class, 'form_mentor'])->name('form_mentor');
 // Route::post('/daftar/mentor_form/submit', [userController::class, 'daftar_mentor'])->name('mentor_submit');
