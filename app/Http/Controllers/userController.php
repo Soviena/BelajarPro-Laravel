@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Cookie;
 use App\Models\member;
 use App\Models\course;
 use App\Models\article;
-
+use App\Models\member_course;
+use PhpParser\Parser\Php5;
 
 class userController extends Controller
 {
@@ -35,7 +36,8 @@ class userController extends Controller
     }
 
     public function mycourse(){
-        $mycourses = course::all();
+        $mycourses = member_course::all();
+        // print("ehe");
         return view('mycourse', compact('mycourses'));
     }
     

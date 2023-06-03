@@ -6,10 +6,10 @@
                 <table class="table table-light">
                     <thead>
                     <tr>
-                        <th scope="col">ID Course</th>
-                        <th scope="col">Nama Course</th>
+                        <th scope="col">ID Kursus</th>
+                        <th scope="col">Nama Kursus</th>
                         <th scope="col">Deskripsi</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -20,9 +20,9 @@
                         <td>{{ $c->name }}</td>
                         <td>{{ $c->deskripsi }}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-{{$c->id}}">Edit</button>
-                            <button type="button" class="btn btn-danger" onclick="confirmBox()">Delete</button>
-                            <a href="{{route('admin-article',$c->id)}}" class="btn btn-info">Article</a>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-{{$c->id}}">Ubah</button>
+                            <button type="button" class="btn btn-danger" onclick="confirmBox()">Hapus</button>
+                            <a href="{{route('admin-article',$c->id)}}" class="btn btn-info">Artikel</a>
                             <script>
                                 function confirmBox() {
                                     if (confirm('Yakin ingin menghapus data tersebut ?')) {window.location.href = '{{ route("delete-course", $c->id)}}';}
@@ -43,7 +43,7 @@
                                     @csrf
                                     <div class="modal-body">
                                         <div class="mb-2">
-                                            <label for="name" class="form-label fw-bold">Nama Course</label>
+                                            <label for="name" class="form-label fw-bold">Nama Kursus</label>
                                             <input type="text" class="form-control" name="name" value="{{ $c->name }}">
                                         </div>
                                         <div class="mb-2">
@@ -51,14 +51,14 @@
                                             <input type="text" class="form-control" name="deskripsi" value="{{ $c->deskripsi }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="img" class="form-label fw-bold">Image</label>
+                                            <label for="img" class="form-label fw-bold">Gambar</label>
                                             <img class="rounded-3 mb-2 mx-auto shadow img-thumbnail" src="{{asset('storage/uploaded/Course/'.$c->img)}}" alt="@isset($c) <?=$c->judul?> @endisset" style="max-height:240px;width:100%;max-width:100%; object-fit: cover; object-position: 25% 25%;">
                                             <input class="form-control col me-5" type="file" name="img" accept=".jpg,.png,.jpeg">
                                         </div>
                                         <input type="hidden" value="{{ $c->id }}" name="id">
                                     <div class="modal-footer">
-                                        <input type="submit" class="btn btn-warning" value="UbahData">
-                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                        <input type="submit" class="btn btn-warning" value="Simpan">
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Tutup</button>
                                     </div>
                                 </form>
                             </div>
@@ -67,7 +67,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Add Course</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Tambah Kursus</button>
                 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -81,7 +81,7 @@
                                     @csrf
                                     <div class="modal-body">
                                         <div class="mb-2">
-                                            <label for="name" class="form-label fw-bold">Nama Course</label>
+                                            <label for="name" class="form-label fw-bold">Nama Kursus</label>
                                             <input type="text" class="form-control" name="name" value="">
                                         </div>
                                         <div class="mb-2">
@@ -89,13 +89,13 @@
                                             <input type="text" class="form-control" name="deskripsi" value="">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="img" class="form-label fw-bold">Image</label>
+                                            <label for="img" class="form-label fw-bold">Gambar</label>
                                             <img class="rounded-3 mb-2 mx-auto shadow img-thumbnail" src="@isset($c){{asset('storage/uploaded/'.$c.'/'.$c->img)}}@endisset" alt="@isset($c) <?=$c->judul?> @endisset" style="max-height:240px;width:100%;max-width:100%; object-fit: cover; object-position: 25% 25%;">
                                             <input class="form-control col me-5" type="file" name="img" accept=".jpg,.png,.jpeg">
                                         </div> 
                                     <div class="modal-footer">
                                         <input type="submit" class="btn btn-warning" value="Simpan">
-                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Tutup</button>
                                     </div>
                                 </form>
                             </div>

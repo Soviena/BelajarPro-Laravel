@@ -7,7 +7,7 @@
                     <thead>
                     <tr>
                         <th scope="col">Chapter</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -15,8 +15,8 @@
                         <tr>
                             <td>{{ $a->chapter }}</td>
                             <td>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-{{$a->id}}">Edit</button>    
-                                <button type="button" class="btn btn-danger" onclick=confirmBox()>Delete</button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-{{$a->id}}">Ubah</button>    
+                                <button type="button" class="btn btn-danger" onclick=confirmBox()>Hapus</button>
                                 <script>
                                     function confirmBox() {
                                         if (confirm('Yakin ingin menghapus chapter tersebut ?')) {window.location.href = '{{ route("delete-chapter", ["idCourse" => $data["cid"],"idArticle" => $a->id]) }}';};
@@ -28,7 +28,7 @@
                             <div class="modal-fullscreen modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Ubah Data</h5>
                                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -41,7 +41,7 @@
                                                 <input type="text" class="form-control" name="chapter" value="{{ $a->chapter  }}">
                                             </div>
                                             <div class="mb-2">
-                                                <label for="deskripsi" class="form-label fw-bold">Deskripsi & Preview</label>
+                                                <label for="deskripsi" class="form-label fw-bold">Deskripsi & Tinjau</label>
                                                 <div class="row">
                                                     <textarea type="text" onchange=updatePreview("editor-{{$a->id}}","preview-{{$a->id}}") class="form-control col" name="deskripsi" rows="10" value="" id="editor-{{$a->id}}" style="max-height:55vh;overflow-y:scroll">{{base64_decode($a->deskripsi)}}</textarea>
                                                     <div class="col border" id="preview-{{$a->id}}" style="max-height:55vh;overflow-y:scroll">
@@ -51,8 +51,8 @@
                                             </div>
                                             <input type="hidden" value="{{ $a->id }}" name="id">
                                         <div class="modal-footer">
-                                            <input type="submit" class="btn btn-secondary" value="Edit">
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                            <input type="submit" class="btn btn-secondary" value="Simpan">
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                         </div>
                                         <script>
                                             document.getElementById("preview-{{$a->id}}").innerHTML = marked.parse(document.getElementById("editor-{{$a->id}}").value)
@@ -64,7 +64,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Add Article</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Tambah Artikel</button>
                 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-fullscreen modal-dialog" role="document">
                             <div class="modal-content">
@@ -82,9 +82,9 @@
                                             <input type="text" class="form-control" name="chapter" value="">
                                         </div>
                                         <div class="mb-2">
-                                            <label for="deskripsi col-6" class="form-label fw-bold">Deskripsi & Preview</label>
+                                            <label for="deskripsi col-6" class="form-label fw-bold">Deskripsi & Pratinjau</label>
                                             <div class="row">
-                                                <textarea type="text" onchange=updatePreview("newText","previewText") class="form-control col" name="deskripsi" rows="10" style="max-height:55vh;overflow-y:scroll" value="" id="newText"></textarea>
+                                                <textarea type="text" onchange='updatePreview("newText","previewText")' class="form-control col" name="deskripsi" rows="10" style="max-height:55vh;overflow-y:scroll" value="" id="newText"></textarea>
                                                 <div class="container-fluid col border" id="previewText" style="max-height:55vh;overflow-y:scroll">
 
                                                 </div>
