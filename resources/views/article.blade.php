@@ -17,7 +17,7 @@
                         <div class="tab-pane fade show @if($loop->first) active @endif" id="idArticle-{{$article->id}}" role="tabpanel" aria-labelledby="v-pills-home-tab">                            
                         </div>
                         <script>
-                            document.getElementById('idArticle-{{$article->id}}').innerHTML = marked.parse(`{!! $article->deskripsi !!}`);
+                            document.getElementById('idArticle-{{$article->id}}').innerHTML = marked.parse(atob(`{!! $article->deskripsi !!}`));
                         </script>
                     @endforeach                    
                 @else

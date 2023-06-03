@@ -64,7 +64,8 @@ class adminController extends Controller
         $article = article::find($request->id);
         $article->chapter=$request->chapter;
         // $article->deskripsi=addslashes($request->deskripsi);
-        $article->deskripsi=str_replace(['\\','\'', '"', '`','+','*','|'], ['','\\\'', '\"', '\`','\+','\*','\|'],$request->deskripsi);
+        // $article->deskripsi=str_replace(['\\','\'', '"', '`','+','*','|'], ['','\\\'', '\"', '\`','\+','\*','\|'],$request->deskripsi);
+        $article->deskripsi=base64_encode($request->deskripsi);
         
         $article->save();
         
@@ -110,7 +111,9 @@ class adminController extends Controller
         $article = new article;
         $article->course_id = $request->courseId;
         $article->chapter = $request->chapter;
-        $article->deskripsi=str_replace(['\\','\'', '"', '`','+','*','|'], ['','\\\'', '\"', '\`','\+','\*','\|'],$request->deskripsi);
+        // $article->deskripsi=str_replace(['\\','\'', '"', '`','+','*','|'], ['','\\\'', '\"', '\`','\+','\*','\|'],$request->deskripsi);
+        $article->deskripsi=base64_encode($request->deskripsi);
+
         $article->save();
         
         return redirect()->route('admin-article',$request->courseId);
