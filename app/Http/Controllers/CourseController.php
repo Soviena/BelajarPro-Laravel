@@ -9,7 +9,12 @@ use App\Models\member;
 class CourseController extends Controller
 {
     public function index(){
-        $mycourses = member::find(session('uid'))->courses()->get();
+        if (!empty(session('uid'))) {
+            $mycourses = member::find(session('uid'))->courses()->get();
+            # code...
+        }else{
+            $mycourses = [];
+        }
         $course = course::all();
         return view('course', compact("mycourses","course"));
     }
