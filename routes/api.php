@@ -18,5 +18,9 @@ use App\Http\Controllers\apiController;
 
 
 Route::get('/course/all', [apiController::class, 'getAllCourse']);
+
 Route::get('/member/all', [apiController::class, 'getAllMember']);
 Route::get('/member/{id}', [apiController::class, 'getMemberById']);
+
+Route::get('/course/{idCourse}/articles', [apiController::class, 'getArticles']);
+Route::get('/login', [apiController::class, 'login']);

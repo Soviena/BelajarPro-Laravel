@@ -5,16 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\course;
 use App\Models\member;
+use App\Models\article;
 
 
-class apiController extends Controller
-{
-    public function getAllCourse(Request $request)
-    {
+class apiController extends Controller{
+    public function getAllCourse(){
         $allCourse = course::all();
         return response()->json($allCourse);
     }
-
     public function getAllMember(Request $request)
     {
         $allMember = member::all();
@@ -25,5 +23,10 @@ class apiController extends Controller
     {
         $member = member::find($request->id);
         return response()->json($member);
+    }
+
+    public function getArticles($courseId){
+        $articles = course::find($courseId)->articles()->get();
+        return response()->json($articles);
     }
 }

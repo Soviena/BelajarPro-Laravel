@@ -43,7 +43,7 @@
                                             <div class="mb-2">
                                                 <label for="deskripsi" class="form-label fw-bold">Deskripsi & Tinjau</label>
                                                 <div class="row">
-                                                    <textarea type="text" onchange='updatePreview("editor-{{$a->id}}","preview-{{$a->id}}")' class="form-control col" name="deskripsi" rows="10" value="" id="editor-{{$a->id}}" style="max-height:55vh;overflow-y:scroll">{{$a->deskripsi}}</textarea>
+                                                    <textarea type="text" onchange=updatePreview("editor-{{$a->id}}","preview-{{$a->id}}") class="form-control col" name="deskripsi" rows="10" value="" id="editor-{{$a->id}}" style="max-height:55vh;overflow-y:scroll">{{base64_decode($a->deskripsi)}}</textarea>
                                                     <div class="col border" id="preview-{{$a->id}}" style="max-height:55vh;overflow-y:scroll">
     
                                                     </div>                                                
@@ -82,7 +82,7 @@
                                             <input type="text" class="form-control" name="chapter" value="">
                                         </div>
                                         <div class="mb-2">
-                                            <label for="deskripsi col-6" class="form-label fw-bold">Deskripsi & Jinjau</label>
+                                            <label for="deskripsi col-6" class="form-label fw-bold">Deskripsi & Pratinjau</label>
                                             <div class="row">
                                                 <textarea type="text" onchange='updatePreview("newText","previewText")' class="form-control col" name="deskripsi" rows="10" style="max-height:55vh;overflow-y:scroll" value="" id="newText"></textarea>
                                                 <div class="container-fluid col border" id="previewText" style="max-height:55vh;overflow-y:scroll">
