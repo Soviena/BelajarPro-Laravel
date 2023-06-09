@@ -23,4 +23,8 @@ Route::get('/member/all', [apiController::class, 'getAllMember']);
 Route::get('/member/{id}', [apiController::class, 'getMemberById']);
 
 Route::get('/course/{idCourse}/articles', [apiController::class, 'getArticles']);
-Route::get('/login', [apiController::class, 'login']);
+Route::post('/login', [apiController::class, 'login']);
+
+
+
+

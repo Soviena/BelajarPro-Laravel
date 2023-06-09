@@ -45,7 +45,10 @@
                         <h6>Biography</h6>
                             " {{$u->biography}} "
                     </div>
-                    <a class="btn btn-primary" style="margin-top: 20px;"  data-bs-toggle="tooltip" data-bs-placement="left" title="Daftar Menjadi Mentor" href="https://forms.office.com/r/NtQpGgBP27">Daftar Mentor</a>
+                    @if($u->id == session('uid'))
+
+                        <a class="btn btn-primary" style="margin-top: 20px;"  data-bs-toggle="tooltip" data-bs-placement="left" title="Daftar Menjadi Mentor" href="https://forms.office.com/r/NtQpGgBP27">Daftar Mentor</a>
+                    @endif
                 </div>
             </div>    
         </div>

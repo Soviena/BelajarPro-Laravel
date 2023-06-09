@@ -79,7 +79,7 @@
                                     <div class="modal-body">
                                         <div class="mb-2">
                                             <label for="chapter" class="form-label fw-bold">Chapter</label>
-                                            <input type="text" class="form-control" name="chapter" value="">
+                                            <input type="text" required class="form-control" name="chapter" value="">
                                         </div>
                                         <div class="mb-2">
                                             <label for="deskripsi col-6" class="form-label fw-bold">Deskripsi & Pratinjau</label>
