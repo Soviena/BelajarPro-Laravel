@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\course;
+use App\Models\member;
 use App\Models\article;
 use Illuminate\Support\Facades\DB;
 
@@ -52,6 +53,36 @@ class apiController extends Controller{
             return response()->json($data);
         }
     }
+
+    public function daftar(Request $request){
+        $u = DB::table('members')->where('email',$request->email)->first();
+        $email = $request->email;
+        $pw = $request->password;
+        if($u){
+            $data = [
+                'msg1' => 'Maaf, Alamat Email sudah terdaftar, coba alamat email lain!.',
+            ];
+            return response()->json($data);
+        }else if($pw != $request->password2) {
+            $data = [
+                'msg2' => 'Maaf, Konfirmasi password salah!',
+            ];
+            return response()->json($data);
+        }
+        
+        $user = new member;
+        $user->name = $request->name;
+        $user->email = $email;
+        $user->password = $request->password;
+        $user->save();
+        $data = [
+            'msg' => "Berhasil daftar",
+            'id' => $user->id,
+            'email' => $email,            
+        ];
+        return response()->json($data);;
+    }
+
 
 
 }
