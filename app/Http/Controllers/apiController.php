@@ -48,7 +48,7 @@ class apiController extends Controller{
                 'msg' => "Email tidak terdaftar",
                 'email' => $request->email
             ];
-            return response()->json($data);
+            return response()->json($data,400);
             
         }else if ($u->password == $request->password) {
             $data = [
@@ -65,7 +65,7 @@ class apiController extends Controller{
                 'msg' => "Maaf, Password yang dimasukkan salah!.",
                 'email' => $request->email
             ];            
-            return response()->json($data);
+            return response()->json($data,400);
         }
     }
 
@@ -77,12 +77,12 @@ class apiController extends Controller{
             $data = [
                 'msg1' => 'Maaf, Alamat Email sudah terdaftar, coba alamat email lain!.',
             ];
-            return response()->json($data);
+            return response()->json($data,400);
         }else if($pw != $request->password2) {
             $data = [
                 'msg2' => 'Maaf, Konfirmasi password salah!',
             ];
-            return response()->json($data);
+            return response()->json($data,400);
         }
         
         $user = new member;
