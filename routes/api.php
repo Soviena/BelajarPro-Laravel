@@ -22,8 +22,16 @@ Route::get('/course/all', [apiController::class, 'getAllCourse']);
 Route::get('/member/all', [apiController::class, 'getAllMember']);
 Route::get('/member/{id}', [apiController::class, 'getMemberById']);
 
+Route::get('/komunitas', [apiController::class, 'getAllPostandComment']);
 Route::get('/course/{idCourse}/articles', [apiController::class, 'getArticles']);
+Route::get('/course/{idCourse}', [apiController::class, 'getCourse']);
 Route::post('/login', [apiController::class, 'login']);
+Route::post('/daftar', [apiController::class, 'daftar']);
+Route::post('/post/add', [apiController::class, 'addPost']);
+Route::post('/comment/add', [apiController::class, 'addComment']);
+
+
+
 
 
 
