@@ -18,6 +18,7 @@ use App\Http\Controllers\apiController;
 
 
 Route::get('/course/all', [apiController::class, 'getAllCourse']);
+Route::get('/komunitas', [apiController::class, 'getAllPostandComment']);
 Route::get('/course/{idCourse}/articles', [apiController::class, 'getArticles']);
 Route::get('/course/{idCourse}', [apiController::class, 'getCourse']);
 Route::post('/login', [apiController::class, 'login']);

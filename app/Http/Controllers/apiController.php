@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\course;
 use App\Models\member;
 use App\Models\article;
+use App\Models\post;
+
 use Illuminate\Support\Facades\DB;
 
 
@@ -81,6 +83,11 @@ class apiController extends Controller{
             'email' => $email,            
         ];
         return response()->json($data);;
+    }
+
+    public function getAllPostandComment(){
+        $posts = post::with('comments')->latest()->get();
+        return response()->json($posts);
     }
 
 
