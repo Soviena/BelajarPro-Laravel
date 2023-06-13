@@ -22,7 +22,7 @@ class apiController extends Controller{
     }
 
     public function getCourse($courseId){
-        $course = course::find($courseId)->get();
+        $course = course::find($courseId);
         return response()->json($course);
     }
 
