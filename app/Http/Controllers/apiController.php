@@ -20,6 +20,11 @@ class apiController extends Controller{
         return response()->json($articles);
     }
 
+    public function getCourse($courseId){
+        $course = course::find($courseId)->get();
+        return response()->json($course);
+    }
+
     public function login(Request $request){
         $u = DB::table('members')->where('email',$request->email)->first();
         if(!$u){
