@@ -86,7 +86,7 @@ class apiController extends Controller{
     }
 
     public function getAllPostandComment(){
-        $posts = post::with('comments')->latest()->get();
+        $posts = post::with('comments.members','members')->latest()->get();
         return response()->json($posts);
     }
 
