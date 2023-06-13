@@ -35,6 +35,7 @@ class apiController extends Controller{
                 'uid' => $u->id,
                 'email' => $u->email,
                 'admin' => $u->admin,
+                'name' => $u->name,
                 'profilePic' => $u->profilePic
             ];
             return response()->json($data);
