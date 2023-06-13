@@ -106,7 +106,7 @@ class apiController extends Controller{
         return response()->json($data);
     }
 
-    public function addComment(Request $request, $idp){
+    public function addComment(Request $request){
         $comment = new comment;
         $comment->post_id = $request->pid;
         $comment->author_id = $request->uid;
