@@ -7,6 +7,8 @@ use App\Models\course;
 use App\Models\member;
 use App\Models\article;
 use App\Models\post;
+use App\Models\comment;
+
 
 use Illuminate\Support\Facades\DB;
 
@@ -90,6 +92,32 @@ class apiController extends Controller{
         return response()->json($posts);
     }
 
+    public function addPost(Request $request){
+        $post = new post;
+        $post->author_id = $request->uid;
+        $post->title = $request->title;
+        $post->deskripsi = $request->desc;
+        $post->tags = $request->tags;
+        $post->save();
+        $data = [
+            'msg' => 'berhasil',
+            'value'=> 'true'
+        ];
+        return response()->json($data);
+    }
+
+    public function addComment(Request $request, $idp){
+        $comment = new comment;
+        $comment->post_id = $request->pid;
+        $comment->author_id = $request->uid;
+        $comment->comment = $request->comment;
+        $comment->save();
+        $data = [
+            'msg' => 'berhasil',
+            'value'=> 'true'
+        ];
+        return response()->json($data);
+    }
 
 
 }

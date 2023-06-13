@@ -23,6 +23,10 @@ Route::get('/course/{idCourse}/articles', [apiController::class, 'getArticles'])
 Route::get('/course/{idCourse}', [apiController::class, 'getCourse']);
 Route::post('/login', [apiController::class, 'login']);
 Route::post('/daftar', [apiController::class, 'daftar']);
+Route::post('/post/add', [apiController::class, 'addPost']);
+Route::post('/post/{idPOst}/comment/add', [apiController::class, 'addComment']);
+
+
 
 
 
